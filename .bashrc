@@ -4,7 +4,7 @@ export QT_IM_MODULE=xim
 export XIM_PROGRAM=/usr/bin/ibus-daemon
 export XIM=ibus
 export XMODIFIERS=@im=ibus
-export EDITOR=gvim
+export EDITOR=vim
 alias diff='colordiff'
 alias ls='ls --color=auto'
 alias p="sudo pacman-color"
@@ -21,4 +21,5 @@ alias yr="yaourt -Rs"
 alias ysyu="yaourt -Syu"
 alias ll="ls -lh"
 alias la="ls -a"
+alias gap="~/Dropbox/Source/gappproxy-1.0.0beta/localproxy/proxy.py"
 complete -cf sudo
