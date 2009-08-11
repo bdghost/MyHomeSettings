@@ -22,6 +22,8 @@ set autoread
 set mouse=a
 "设置历史
 set history=400
+"设置缺省路径
+set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 "设置mapleader
 let mapleader=","
 let g:mapleader=","
@@ -181,12 +183,23 @@ map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>:Tlis
 
 "自动补全
 autocmd FileType python set complete+=k~/.vim/pydiction isk+=.,
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType ruby set omnifunc=rubycomplete#Complete
+autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType ada set omnifunc=adacomplete#Complete
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType xhtml set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType sql set omnifunc=sqlcomplete#Complete
 "快速运行
 au FileType python map <buffer> <leader><space> :w!<cr>:!python %<cr>
 "快速补全
-au FileType python inoremap <buffer> $r return
-au FileType python inoremap <buffer> $s self
-au FileType python inoremap <buffer> $c ##<cr>#<space><cr>#<esc>kla
-au FileType python inoremap <buffer> $i import
-au FileType python inoremap <buffer> $p print
-au FileType python inoremap <buffer> $d """<cr>"""<esc>O
+"au FileType python inoremap <buffer> $r return
+"au FileType python inoremap <buffer> $s self
+"au FileType python inoremap <buffer> $c ##<cr>#<space><cr>#<esc>kla
+"au FileType python inoremap <buffer> $i import
+"au FileType python inoremap <buffer> $p print
+"au FileType python inoremap <buffer> $d """<cr>"""<esc>O
