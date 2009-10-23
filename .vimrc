@@ -63,6 +63,8 @@ set whichwrap+=<,>,h,l
 set ignorecase
 "搜索时高亮关键字
 set hlsearch
+"即时搜索
+set incsearch
 "设置magic
 set magic
 "关闭提示音
@@ -92,6 +94,8 @@ set cindent
 set guifont=terminus\ 10
 "自动补全
 set completeopt=longest,menuone
+"文本折叠
+set foldmethod=indent
 
 """""""""""""""""""""""""""""""""""""""
 "状态条
@@ -127,6 +131,12 @@ hi PmenuSel guibg=#555555 guifg=#ffffff
 set autochdir
 
 """""""""""""""""""""""""""""""""""""""
+"跳转到上次编辑位置
+"""""""""""""""""""""""""""""""""""""""
+
+:au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
+"""""""""""""""""""""""""""""""""""""""
 "补全快捷键
 """""""""""""""""""""""""""""""""""""""
 
@@ -146,15 +156,39 @@ endfunction
 
 inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 
+"""""""""""""""""""""""""""""""""""""""
+"编译运行
+"""""""""""""""""""""""""""""""""""""""
+
+func CompileRun()
+    exec "w"
+    "C程序
+    if &filetype == 'c'
+        exec "!gcc %  -o %<"
+        exec "!./%<"
+    elseif &filetype == 'cpp'
+        exec "!g++ %  -o %<"
+        exec "!./%<"
+    elseif &filetype == 'python'
+        exec "!python %"
+        exec "!pwd"
+    endif
+endfunc 
+
 """"""""""""""""""""""""""""""""""""""
 "快捷键
 """""""""""""""""""""""""""""""""""""""
-"Tlist
-noremap <silent> <F10> <Esc><Esc>:Tlist<CR>
-inoremap <silent> <F10> <Esc><Esc>:Tlist<CR>
-map <leader>w :WMToggle<cr>
+
 "快速保存
 nmap w :w<cr>
+"编译运行
+map <F5> :call CompileRun()<CR> 
+"WM
+map <F10> :WMToggle<cr>
+"保存并关闭
+map <F11> :x<cr>
+"不保存关闭
+map <F12> :q!<cr>
 "快速重载.vimrc
 "map <leader>s :source ~/.vimrc<cr>
 "快速编辑.vimrc
