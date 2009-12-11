@@ -5,5 +5,5 @@
 vo=x11
 zoom=1
 vf=eq2
-ao=alsa
+ao=pulse
 msglevel=all=5

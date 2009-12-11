@@ -95,7 +95,7 @@ set guifont=terminus\ 10
 "自动补全
 set completeopt=longest,menuone
 "文本折叠
-set foldmethod=indent
+"set foldmethod=indent
 
 """""""""""""""""""""""""""""""""""""""
 "状态条
@@ -164,7 +164,7 @@ func CompileRun()
     exec "w"
     "C程序
     if &filetype == 'c'
-        exec "!gcc %  -o %<"
+        exec "!gcc -g -Wall -lm % -o %<"
         exec "!./%<"
     elseif &filetype == 'cpp'
         exec "!g++ %  -o %<"

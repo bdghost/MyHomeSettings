@@ -1,0 +1,1 @@
+ffmpeg -i \[古惑仔6.胜者为王\].Young.And.Dangerous.Part.VI.2000.DVD.X264.AAC.HALFCD-NORM.mkv -timestamp 00:00:00 -vcodec libx264 -bufsize 128 -g 250 -s 480x272 -r 29.97 -b 768k -acodec libfaac -ac 2 -ar 48000 -ab 64 -f psp ghz6.mp4 2>/dev/null

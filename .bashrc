@@ -5,7 +5,7 @@ export GTK_IM_MODULE=xim
 export QT_IM_MODULE=xim
 export XIM_PROGRAM=/usr/bin/ibus-daemon
 export XIM=ibus
-export XMODIFIERS=@im=ibus
+export XMODIFIERS="@im=ibus"
 export EDITOR=vim
 alias diff='colordiff'
 alias ls='ls --color=auto'
@@ -24,4 +24,5 @@ alias ysyu="yaourt -Syu"
 alias ll="ls -lh"
 alias la="ls -a"
 alias gap="~/Dropbox/Source/gappproxy-1.0.0beta/localproxy/proxy.py"
+alias rd="rdesktop -u web -p cugbdxxy 202.204.100.225 -g 1420x850 -BKza 16 -r sound:local -r clipboard:PRIMARYCLIPBOARD"
 complete -cf sudo
