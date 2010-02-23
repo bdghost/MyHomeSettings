@@ -113,7 +113,7 @@ syntax enable
 set t_Co=256
 colorscheme darkblue
 "高亮当前行
-set cursorline
+"set cursorline
 if has("gui_running")
     colorscheme slate
 	hi cursorline guibg=#333333
@@ -127,7 +127,7 @@ hi PmenuSel guibg=#555555 guifg=#ffffff
 "Ctags 
 """""""""""""""""""""""""""""""""""""""
 
-"set tags+=~/.vim/gtktags
+set tags+=~/.vim/systags
 set autochdir
 
 """""""""""""""""""""""""""""""""""""""
@@ -135,6 +135,12 @@ set autochdir
 """""""""""""""""""""""""""""""""""""""
 
 :au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
+"""""""""""""""""""""""""""""""""""""""
+"Man Pages
+"""""""""""""""""""""""""""""""""""""""
+
+runtime ftplugin/Man.vim
 
 """""""""""""""""""""""""""""""""""""""
 "补全快捷键
@@ -230,10 +236,12 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType sql set omnifunc=sqlcomplete#Complete
 "快速运行
 au FileType python map <buffer> <leader><space> :w!<cr>:!python %<cr>
-"快速补全
-"au FileType python inoremap <buffer> $r return
-"au FileType python inoremap <buffer> $s self
-"au FileType python inoremap <buffer> $c ##<cr>#<space><cr>#<esc>kla
-"au FileType python inoremap <buffer> $i import
-"au FileType python inoremap <buffer> $p print
-"au FileType python inoremap <buffer> $d """<cr>"""<esc>O
+
+"""""""""""""""""""""""""""""""""""""""
+"Vala
+"""""""""""""""""""""""""""""""""""""""
+
+autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+au BufRead,BufNewFile *.vala            setfiletype vala
+au BufRead,BufNewFile *.vapi            setfiletype vala
