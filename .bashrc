@@ -9,20 +9,15 @@ export XMODIFIERS="@im=ibus"
 export EDITOR=vim
 alias diff='colordiff'
 alias ls='ls --color=auto'
-alias p="sudo pacman-color"
-alias pacs="sudo pacman-color -S"
-alias pss="sudo pacman-color -Ss"
-alias pu="sudo pacman-color -U"
-alias pacr="sudo pacman-color -Rs"
-alias psyu="sudo pacman-color -Syu"
 alias y="yaourt"
 alias ys="yaourt -S"
 alias yss="yaourt -Ss"
 alias yu="yaourt -U"
 alias yr="yaourt -Rs"
+alias ysu="yaourt -Su"
 alias ysyu="yaourt -Syu"
 alias ll="ls -lh"
 alias la="ls -a"
 alias gap="~/Dropbox/Source/gappproxy-1.0.0beta/localproxy/proxy.py"
-alias rd="rdesktop -u web -p cugbdxxy 202.204.100.225 -g 1420x850 -BKza 16 -r sound:local -r clipboard:PRIMARYCLIPBOARD"
+alias rd="~/Scripts/rdesktop.sh"
 complete -cf sudo
