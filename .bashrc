@@ -1,6 +1,8 @@
+
+# Check for an interactive session
+[ -z "$PS1" ] && return
+
 PS1='[\[\033[0;34m\]\u\[\033[0;35m\]@\[\033[0;33m\]\w\[\033[00m\]]$ '
-#export LC_ALL=ja_JP.utf8
-#export LC_LANG=ja_JP.utf8
 export GTK_IM_MODULE=xim
 export QT_IM_MODULE=xim
 export XIM_PROGRAM=/usr/bin/ibus-daemon

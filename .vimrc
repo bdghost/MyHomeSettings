@@ -1,8 +1,3 @@
-"设定操作系统
-function! MySys()
-return "linux"
-endfunction
-
 """""""""""""""""""""""""""""""""""""""
 "常规
 """""""""""""""""""""""""""""""""""""""
@@ -11,9 +6,7 @@ set fileencodings=ucs-bom,utf-8,gb18030,gb2312,gbk,cp936
 "文件类型识别
 filetype plugin indent on
 "设置shell
-if MySys() == "linux"
 set shell=bash
-endif
 "关闭兼容模式
 set nocompatible
 "外部修改时自动读取
@@ -52,7 +45,7 @@ set ruler
 "增强命令行补全
 set wildmenu
 "设置命令行高度
-set cmdheight=2
+set cmdheight=1
 "减少刷新和重画
 set lz
 "设置退格键
@@ -127,7 +120,6 @@ hi PmenuSel guibg=#555555 guifg=#ffffff
 "Ctags 
 """""""""""""""""""""""""""""""""""""""
 
-set tags+=~/.vim/systags
 set autochdir
 
 """""""""""""""""""""""""""""""""""""""
@@ -141,26 +133,6 @@ set autochdir
 """""""""""""""""""""""""""""""""""""""
 
 runtime ftplugin/Man.vim
-
-"""""""""""""""""""""""""""""""""""""""
-"补全快捷键
-"""""""""""""""""""""""""""""""""""""""
-
- function! SuperCleverTab()
-    if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
-        return "\<Tab>"
-    else
-        if &omnifunc != ''
-            return "\<C-X>\<C-O>"
-        elseif &dictionary != ''
-            return "\<C-K>"
-        else
-            return "\<C-N>"
-        endif
-    endif
-endfunction
-
-inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 
 """""""""""""""""""""""""""""""""""""""
 "编译运行
@@ -222,18 +194,19 @@ map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>:Tlis
 """""""""""""""""""""""""""""""""""""""
 
 "自动补全
-autocmd FileType python set complete+=k~/.vim/pydiction isk+=.,
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType ruby set omnifunc=rubycomplete#Complete
-autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd FileType ada set omnifunc=adacomplete#Complete
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType xhtml set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType sql set omnifunc=sqlcomplete#Complete
+let g:pydiction_location='~/.vim/py-complete-dict'
+autocmd FileType c set tags+=~/.vim/systags
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd FileType ruby set omnifunc=rubycomplete#Complete
+"autocmd FileType c set omnifunc=ccomplete#Complete
+"autocmd FileType ada set omnifunc=adacomplete#Complete
+"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType xhtml set omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+"autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+"autocmd FileType sql set omnifunc=sqlcomplete#Complete
 "快速运行
 au FileType python map <buffer> <leader><space> :w!<cr>:!python %<cr>
 
