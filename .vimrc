@@ -104,7 +104,7 @@ set laststatus=2
 syntax enable
 "设置颜色主题
 set t_Co=256
-colorscheme darkblue
+colorscheme desert
 "高亮当前行
 "set cursorline
 if has("gui_running")
@@ -222,3 +222,13 @@ autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 au BufRead,BufNewFile *.vala            setfiletype vala
 au BufRead,BufNewFile *.vapi            setfiletype vala
+
+"""""""""""""""""""""""""""""""""""""""
+"Genie
+"""""""""""""""""""""""""""""""""""""""
+
+augroup setgenie
+    au!
+    au BufNewFile *.gs setlocal filetype="genie"
+    au BufRead *.gs setlocal filetype="genie"
+augroup END 
