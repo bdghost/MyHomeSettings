@@ -195,7 +195,11 @@ map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>:Tlis
 
 "自动补全
 let g:pydiction_location='~/.vim/py-complete-dict'
+let g:acp_ignorecaseOption=0
 autocmd FileType c set tags+=~/.vim/systags
+"Pylint
+autocmd FileType python compiler pylint
+let g:pylint_onwrite = 0
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType ruby set omnifunc=rubycomplete#Complete
 "autocmd FileType c set omnifunc=ccomplete#Complete
