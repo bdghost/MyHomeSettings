@@ -1,3 +1,3 @@
 function exp
-    ~/Scripts/ssh.exp
+    ~/Dropbox/Scripts/ssh.exp
 end
