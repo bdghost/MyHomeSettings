@@ -71,12 +71,12 @@ set smartindent
 "换行不截断单词
 set linebreak
 "C风格缩进
-set cindent
+"set cindent
 set guifont=terminus\ 10
 "自动补全
-set completeopt=longest,menuone
+set completeopt=longest,menuone,preview
 "文本折叠
-"set foldmethod=indent
+set foldmethod=indent
 
 """""""""""""""""""""""""""""""""""""""
 "状态条
@@ -99,16 +99,19 @@ if has("gui_running")
     colorscheme slate
 	hi cursorline guibg=#333333
 	hi CursorColumn guibg=#333333
+    "高亮菜单
+    hi Pmenu guibg=#333333
+    hi PmenuSel guibg=#555555 guifg=#ffffff
 endif
-"高亮菜单
-hi Pmenu guibg=#333333
-hi PmenuSel guibg=#555555 guifg=#ffffff
 
 """"""""""""""""""""""""""""""""""""""
 "Ctags 
 """""""""""""""""""""""""""""""""""""""
 
 set autochdir
+"生成Ctags
+map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>:TlistUpdate<CR>
+autocmd FileType c set tags+=~/.vim/systags
 
 """""""""""""""""""""""""""""""""""""""
 "跳转到上次编辑位置
@@ -154,6 +157,9 @@ let tlist_qmake_settings='qmake;t:SystemVariables'
 let g:persistentBehaviour=0
 let g:winManagerWindowLayout='BufExplorer,FileExplorer|TagList'
 :set cscopequickfix=s-,c-,d-,i-,t-,e-
+"设置Pylint
+autocmd FileType python compiler pylint
+let g:pylint_onwrite = 0
 
 """"""""""""""""""""""""""""""""""""""
 "快捷键
@@ -162,35 +168,33 @@ let g:winManagerWindowLayout='BufExplorer,FileExplorer|TagList'
 "快速保存
 nmap <c-w> :w<cr>
 imap <c-w> <Esc>:w<cr>a
+"Paste开关
+set pastetoggle=<F2>
+"删除空行上的缩进
+map <F3> :%s/\s*$//g<cr>:noh<cr>''
+"去除空行
+map <F4> :g/^$/d<cr>:noh<cr>''
 "编译运行
 map <F5> :call CompileRun()<CR> 
-"WM
+"WinManager开关
 map <F10> :WMToggle<cr>
 "保存并关闭
 map <F11> :x<cr>
 "不保存关闭
 map <F12> :q!<cr>
 "快速重载.vimrc
-"map <leader>s :source ~/.vimrc<cr>
+map <leader>s :source ~/.vimrc<cr>
 "快速编辑.vimrc
-"map <leader>e :e ~/.vimrc<cr>
+map <leader>e :e ~/.vimrc<cr>
 "当.vimrc改变时，自动重载
 autocmd! bufwritepost vimrc source ~/.vimrc
-"Paste toggle - when pasting something in, don't indent.
-set pastetoggle=<F3>
-"Remove indenting on empty lines
-map <F2> :%s/\s*$//g<cr>:noh<cr>''
-"去除空行
-map <F3> :g/^$/d<cr>
-"Super paste
-inoremap <C-v> <esc>:set paste<cr>mui<C-R>+<esc>mv'uV'v=:set nopaste<cr>
 "切换Tab
-map <c-tab> <esc>:tabnext<cr>
+"map <c-tab> <esc>:tabnext<cr>
 "切换buffer
 map <leader>n <esc>:bnext<cr>
 map <leader>p <esc>:bprevious<cr>
-"生成Ctags
-map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>:TlistUpdate<CR>
+"展开与折叠开关
+nmap <space> za
 
 """""""""""""""""""""""""""""""""""""""
 "Python
@@ -199,10 +203,6 @@ map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>:Tlis
 "自动补全
 let g:pydiction_location='~/.vim/py-complete-dict'
 let g:acp_ignorecaseOption=0
-autocmd FileType c set tags+=~/.vim/systags
-"Pylint
-autocmd FileType python compiler pylint
-let g:pylint_onwrite = 0
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType ruby set omnifunc=rubycomplete#Complete
 "autocmd FileType c set omnifunc=ccomplete#Complete
