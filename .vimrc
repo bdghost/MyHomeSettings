@@ -166,8 +166,8 @@ let g:pylint_onwrite = 0
 """""""""""""""""""""""""""""""""""""""
 
 "快速保存
-nmap <c-w> :w<cr>
-imap <c-w> <Esc>:w<cr>a
+nmap <leader>w :w<cr>
+imap <leader>w <Esc>:w<cr>a
 "Paste开关
 set pastetoggle=<F2>
 "删除空行上的缩进
