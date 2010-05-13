@@ -21,18 +21,6 @@ set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.
 let mapleader=","
 let g:mapleader=","
 let g:C_MapLeader=","
-"设置Tlist
-"let Tlist_Show_One_File=1
-"let Tlist_Auto_Open=1
-let Tlist_Exit_OnlyWindow=1
-let Tlist_Use_SingleClick=1
-let Tlist_Auto_Highlight_Tag=1
-let tlist_make_settings='make;m:makros;t:targets'
-let tlist_qmake_settings='qmake;t:SystemVariables'
-"winManager
-let g:persistentBehaviour=0
-let g:winManagerWindowLayout='BufExplorer,FileExplorer|TagList'
-:set cscopequickfix=s-,c-,d-,i-,t-,e-
 
 """""""""""""""""""""""""""""""""""""""
 "界面
@@ -47,13 +35,13 @@ set wildmenu
 "设置命令行高度
 set cmdheight=1
 "减少刷新和重画
-set lz
+set lazyredraw
 "设置退格键
 set backspace=eol,start,indent
 "设置跨行键
 set whichwrap+=<,>,h,l
-"搜索时忽略大小写
-set ignorecase
+"搜索时智能大小写
+set smartcase
 "搜索时高亮关键字
 set hlsearch
 "即时搜索
@@ -62,8 +50,8 @@ set incsearch
 set magic
 "关闭提示音
 set noerrorbells
-set novisualbell
-set vb t_vb=
+set visualbell
+"set visualbell t_vb=
 "自动匹配括号
 set showmatch
 set mat=2
@@ -153,12 +141,27 @@ func CompileRun()
     endif
 endfunc 
 
+"""""""""""""""""""""""""""""""""""""""
+"插件
+"""""""""""""""""""""""""""""""""""""""
+"设置Tlist
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Use_SingleClick=1
+let Tlist_Auto_Highlight_Tag=1
+let tlist_make_settings='make;m:makros;t:targets'
+let tlist_qmake_settings='qmake;t:SystemVariables'
+"设置WinManager
+let g:persistentBehaviour=0
+let g:winManagerWindowLayout='BufExplorer,FileExplorer|TagList'
+:set cscopequickfix=s-,c-,d-,i-,t-,e-
+
 """"""""""""""""""""""""""""""""""""""
 "快捷键
 """""""""""""""""""""""""""""""""""""""
 
 "快速保存
-nmap w :w<cr>
+nmap <c-w> :w<cr>
+imap <c-w> <Esc>:w<cr>a
 "编译运行
 map <F5> :call CompileRun()<CR> 
 "WM
