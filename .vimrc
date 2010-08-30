@@ -35,7 +35,7 @@ set wildmenu
 "设置命令行高度
 set cmdheight=1
 "减少刷新和重画
-set lazyredraw
+"set lazyredraw
 "设置退格键
 set backspace=eol,start,indent
 "设置跨行键
@@ -76,7 +76,7 @@ set guifont=terminus\ 10
 "自动补全
 set completeopt=longest,menuone,preview
 "文本折叠
-set foldmethod=indent
+"set foldmethod=indent
 
 """""""""""""""""""""""""""""""""""""""
 "状态条
@@ -92,11 +92,10 @@ set laststatus=2
 syntax enable
 "设置颜色主题
 set t_Co=256
-colorscheme desert
+colorscheme slate
 "高亮当前行
-"set cursorline
+set cursorline
 if has("gui_running")
-    colorscheme slate
 	hi cursorline guibg=#333333
 	hi CursorColumn guibg=#333333
     "高亮菜单
@@ -117,7 +116,7 @@ autocmd FileType c set tags+=~/.vim/systags
 "跳转到上次编辑位置
 """""""""""""""""""""""""""""""""""""""
 
-:au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+:autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 """""""""""""""""""""""""""""""""""""""
 "Man Pages
@@ -175,7 +174,8 @@ map <F3> :%s/\s*$//g<cr>:noh<cr>''
 "去除空行
 map <F4> :g/^$/d<cr>:noh<cr>''
 "编译运行
-map <F5> :call CompileRun()<CR> 
+"map <F5> :call CompileRun()<CR> 
+map <F5> :cd ..<cr>:!sudo ./setup.py install --prefix=/usr && yaner<CR>:cd Yaner<cr>
 "WinManager开关
 map <F10> :WMToggle<cr>
 "保存并关闭
@@ -203,7 +203,7 @@ nmap <space> za
 "自动补全
 let g:pydiction_location='~/.vim/py-complete-dict'
 let g:acp_ignorecaseOption=0
-"autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType ruby set omnifunc=rubycomplete#Complete
 "autocmd FileType c set omnifunc=ccomplete#Complete
 "autocmd FileType ada set omnifunc=adacomplete#Complete

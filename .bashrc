@@ -19,5 +19,6 @@ alias ysu="yaourt -Su"
 alias ysyu="yaourt -Syu"
 alias ll="ls -lh"
 alias la="ls -a"
+alias pc="proxychains"
 
 # User specific aliases and functions

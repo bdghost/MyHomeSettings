@@ -1,3 +1,19 @@
 [user]
 	email = ivenvd@gmail.com
 	name = iven
+[alias]
+    ci = commit -a
+    df = diff --color
+    dc = diff --color --cached
+    st = status
+    br = branch
+    co = checkout
+    lg = log --color -p
+    who = shortlog -s --
+    ps = push origin master
+[giggle]
+	main-window-maximized = true
+	main-window-geometry = 0x0+0+0
+	history-view-vpane-position = 84
+	file-view-vpane-position = 367
+	main-window-view = FileView
