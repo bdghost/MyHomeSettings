@@ -21,6 +21,8 @@ set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.
 let mapleader=","
 let g:mapleader=","
 let g:C_MapLeader=","
+"开启 pathogen
+call pathogen#runtime_append_all_bundles()
 
 """""""""""""""""""""""""""""""""""""""
 "界面
@@ -110,7 +112,7 @@ endif
 set autochdir
 "生成Ctags
 map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>:TlistUpdate<CR>
-autocmd FileType c set tags+=~/.vim/systags
+autocmd FileType c set tags+=~/.vim/bundle/other/systags
 
 """""""""""""""""""""""""""""""""""""""
 "跳转到上次编辑位置
@@ -128,20 +130,20 @@ runtime ftplugin/Man.vim
 "编译运行
 """""""""""""""""""""""""""""""""""""""
 
-func CompileRun()
-    exec "w"
-    "C程序
-    if &filetype == 'c'
-        exec "!gcc -g -Wall -lm % -o %<"
-        exec "!./%<"
-    elseif &filetype == 'cpp'
-        exec "!g++ %  -o %<"
-        exec "!./%<"
-    elseif &filetype == 'python'
-        exec "!python %"
-        exec "!pwd"
-    endif
-endfunc 
+"func CompileRun()
+"    exec "w"
+"    "C程序
+"    if &filetype == 'c'
+"        exec "!gcc -g -Wall -lm % -o %<"
+"        exec "!./%<"
+"    elseif &filetype == 'cpp'
+"        exec "!g++ %  -o %<"
+"        exec "!./%<"
+"    elseif &filetype == 'python'
+"        exec "!python %"
+"        exec "!pwd"
+"    endif
+"endfunc 
 
 """""""""""""""""""""""""""""""""""""""
 "插件
