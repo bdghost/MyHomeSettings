@@ -3,5 +3,8 @@
 
 [gnome-mplayer]
 vo=xv
-msglevel=all=5
 vf=eq2
+ao=pulse
+msglevel=all=5
+alang=Chinese,chi,zh
+slang=Chinese,chi,zh

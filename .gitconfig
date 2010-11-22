@@ -10,10 +10,12 @@
     co = checkout
     lg = log --color -p
     who = shortlog -s --
-    ps = push origin master
+    ps = push origin --all
 [giggle]
 	main-window-maximized = true
 	main-window-geometry = 0x0+0+0
 	history-view-vpane-position = 84
 	file-view-vpane-position = 367
 	main-window-view = FileView
+[color]
+	ui = auto
