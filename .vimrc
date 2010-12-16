@@ -159,7 +159,7 @@ let g:persistentBehaviour=0
 let g:winManagerWindowLayout='BufExplorer,FileExplorer|TagList'
 :set cscopequickfix=s-,c-,d-,i-,t-,e-
 "设置Pylint
-autocmd FileType python compiler pylint
+"autocmd FileType python compiler pylint
 let g:pylint_onwrite = 0
 
 """"""""""""""""""""""""""""""""""""""
