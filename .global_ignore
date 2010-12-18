@@ -1,0 +1,37 @@
+# Python
+*.py[co]
+
+# C/C++
+*.slo
+*.lo
+*.o
+*.so
+*.so.*
+*.lai
+*.la
+*.a
+
+# Linux
+*~
+*.sw[a-z]
+
+# Vim
+*.un~
+Session.vim
+
+# Ctags
+tags
+TAGS
+
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.tar.gz
+*.zip
+*.bzip
+

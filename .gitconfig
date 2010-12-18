@@ -19,3 +19,5 @@
 	main-window-view = FileView
 [color]
 	ui = auto
+[core]
+	excludesfile = /home/iven/.global_ignore
