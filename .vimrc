@@ -21,6 +21,8 @@ set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.
 let mapleader=","
 let g:mapleader=","
 let g:C_MapLeader=","
+"关闭modelines
+set modelines=0
 "开启 pathogen
 call pathogen#runtime_append_all_bundles()
 
@@ -48,6 +50,8 @@ set smartcase
 set hlsearch
 "即时搜索
 set incsearch
+"去除高亮快捷键
+nnoremap <leader><space> :noh<cr>
 "设置magic
 set magic
 "关闭提示音
@@ -57,6 +61,8 @@ set visualbell
 "自动匹配括号
 set showmatch
 set mat=2
+"高亮列
+"set colorcolumn=85
 
 """""""""""""""""""""""""""""""""""""""
 "文本
@@ -79,6 +85,9 @@ set guifont=terminus\ 10
 set completeopt=longest,menuone,preview
 "文本折叠
 "set foldmethod=indent
+"不可见字符
+set list
+set listchars=tab:>-,eol:☠
 
 """""""""""""""""""""""""""""""""""""""
 "状态条
@@ -95,15 +104,13 @@ syntax enable
 "设置颜色主题
 set t_Co=256
 colorscheme slate
+"隐藏字符
+hi NonText ctermfg=8
+hi SpecialKey ctermfg=8
 "高亮当前行
 set cursorline
-if has("gui_running")
-	hi cursorline guibg=#333333
-	hi CursorColumn guibg=#333333
-    "高亮菜单
-    hi Pmenu guibg=#333333
-    hi PmenuSel guibg=#555555 guifg=#ffffff
-endif
+set nocursorcolumn
+hi cursorline ctermbg=0
 
 """"""""""""""""""""""""""""""""""""""
 "Ctags 
@@ -189,14 +196,22 @@ map <leader>s :source ~/.vimrc<cr>
 "快速编辑.vimrc
 map <leader>e :e ~/.vimrc<cr>
 "当.vimrc改变时，自动重载
-autocmd! bufwritepost vimrc source ~/.vimrc
+autocmd! bufwritepost .vimrc source ~/.vimrc
 "切换Tab
 "map <c-tab> <esc>:tabnext<cr>
 "切换buffer
-map <leader>n <esc>:bnext<cr>
-map <leader>p <esc>:bprevious<cr>
+nmap <c-n> <esc>:bnext<cr>
+nmap <c-p> <esc>:bprevious<cr>
 "展开与折叠开关
 nmap <space> za
+"分屏相关
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <leader>v <C-w>v<C-w>l
+"映射冒号
+nmap ; :
 
 """""""""""""""""""""""""""""""""""""""
 "Python
@@ -207,7 +222,7 @@ let g:pydiction_location='~/.vim/py-complete-dict'
 let g:acp_ignorecaseOption=0
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType ruby set omnifunc=rubycomplete#Complete
-"autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType c set omnifunc=ccomplete#Complete
 "autocmd FileType ada set omnifunc=adacomplete#Complete
 "autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 "autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
