@@ -73,6 +73,9 @@ set expandtab
 set smarttab
 set tabstop=4
 set shiftwidth=4
+"自动替换Tab
+auto BufReadPost	*.c	%retab 4
+auto BufReadPost	*.h	%retab 4
 "自动缩进与智能缩进
 set autoindent
 set smartindent
