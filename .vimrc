@@ -221,8 +221,9 @@ nmap ; :
 """""""""""""""""""""""""""""""""""""""
 
 "自动补全
-let g:pydiction_location='~/.vim/py-complete-dict'
-let g:acp_ignorecaseOption=0
+let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
+let g:acp_completeoptPreview=1
+let g:acp_behaviorKeywordLength=1
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType ruby set omnifunc=rubycomplete#Complete
 autocmd FileType c set omnifunc=ccomplete#Complete
