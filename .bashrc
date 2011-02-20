@@ -26,5 +26,5 @@ alias pc="proxychains"
 alias gap="~/Dropbox/Source/gappproxy-1.0.0beta/localproxy/proxy.py"
 alias rd="~/Scripts/rdesktop.sh"
 export MOZ_DISABLE_PANGO=1
-export PATH="/usr/lib/ccache/bin/:$PATH"
+export PATH="/usr/lib/ccache/bin/:/opt/crosstool/gcc-3.4.5-glibc-2.3.6/arm-unknown-linux-gnu/bin/:$PATH"
 complete -cf sudo
