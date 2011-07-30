@@ -1,0 +1,31 @@
+! Font
+URxvt.font:-misc-fixed-medium-r-normal--14-*-*-*-*-*-iso10646-1,xft:WenQuanYi Bitmap Song:size=10
+
+! Color
+URxvt.depth: 32
+URxvt.background: black
+URxvt.foreground: white
+URxvt.colorUL: green
+URxvt.fading: 25
+
+! ScrollBar
+URxvt.scrollstyle: plain
+URxvt.scrollBar_right: True
+URxvt.scrollBar_floating: False
+
+! Screen buffer
+URxvt.saveLines: 10000
+
+! Input method
+URxvt.inputMethod: fcitx
+
+! Clickable link
+URxvt.perl-ext-common:  default,matcher,tabbed,url-select
+URxvt.urlLauncher:      /usr/bin/firefox
+URxvt.matcher.button:   1 
+
+! Yankable link
+URxvt.perl-ext:      default,url-select
+URxvt.keysym.M-u:    perl:url-select:select_next
+URxvt.urlLauncher:   firefox
+URxvt.underlineURLs: true
