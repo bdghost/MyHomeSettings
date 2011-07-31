@@ -25,9 +25,9 @@ alias gap="~/Dropbox/Source/gappproxy-1.0.0beta/localproxy/proxy.py"
 alias rd="~/Scripts/rdesktop.sh"
 export USE_CCACHE=1
 export MOZ_DISABLE_PANGO=1
-export PATH="/usr/lib/ccache/bin/:/opt/crosstool/gcc-3.4.5-glibc-2.3.6/arm-unknown-linux-gnu/bin/:$PATH"
+export PATH="/usr/lib/ccache/bin/:$PATH"
 # PATH for Android emulator
-export PATH=$PATH:~/Workspace/mydroid/out/host/linux-x86/bin
-export ANDROID_PRODUCT_OUT=~/Workspace/mydroid/out/target/product/generic
-export ANDROID_JAVA_HOME=$JAVA_HOME
+#export PATH=$PATH:~/Workspace/mydroid/out/host/linux-x86/bin
+#export ANDROID_PRODUCT_OUT=~/Workspace/mydroid/out/target/product/generic
+#export ANDROID_JAVA_HOME=$JAVA_HOME
 complete -cf sudo
