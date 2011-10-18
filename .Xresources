@@ -3,7 +3,7 @@ URxvt.font:-misc-fixed-medium-r-normal--14-*-*-*-*-*-iso10646-1,xft:WenQuanYi Bi
 
 ! Color
 URxvt.depth: 32
-URxvt.background: black
+URxvt.background: rgba:1111/1111/1111/dddd
 URxvt.foreground: white
 URxvt.colorUL: green
 URxvt.fading: 25
@@ -20,12 +20,11 @@ URxvt.saveLines: 10000
 URxvt.inputMethod: fcitx
 
 ! Clickable link
-URxvt.perl-ext-common:  default,matcher,tabbed,url-select
+URxvt.perl-ext-common:  default,matcher,tabbed,url-select,clipboard
 URxvt.urlLauncher:      /usr/bin/firefox
 URxvt.matcher.button:   1 
 
 ! Yankable link
 URxvt.perl-ext:      default,url-select
 URxvt.keysym.M-u:    perl:url-select:select_next
-URxvt.urlLauncher:   firefox
 URxvt.underlineURLs: true

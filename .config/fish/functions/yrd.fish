@@ -1,3 +1,3 @@
 function yrd
-    yaourt -Rd $argv
+    yaourt -Rdd $argv
 end

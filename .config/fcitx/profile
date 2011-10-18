@@ -1,28 +1,22 @@
 [Profile]
-# 主窗口X位置
-MainWindowOffsetX=500
-# 主窗口Y位置
-MainWindowOffsetY=1
-# 输入框X位置
-InputWindowOffsetX=300
-# 输入框Y位置
-InputWindowOffsetY=50
-# 使用全角字符
-Corner=False
-# 使用中文标点
-ChnPunc=True
-# 光标跟随
-TrackCursor=True
-# 输入后联想词组
-UseLegend=False
-# 当前输入法
-IMIndex=1
-# 锁定
-Locked=False
-# 用紧凑的方式显示主窗口
-CompactMainWindow=False
-# 使用繁体中文输入
-UseGBKT=False
-# 使用记录模式
-Recording=False
+# Use Full Width Character
+# Available Value:
+# True False
+FullWidth=False
+# Use Wide Punctuation
+# Available Value:
+# True False
+WidePunc=True
+# Prompt the phrases after input
+# Available Value:
+# True False
+UseRemind=False
+# Current Input Method Name
+IMName=shuangpin
+# Current Enabled Input Method List
+EnabledIMList=pinyin:True,shuangpin:True
+# Show Preedit String in Client Window
+# Available Value:
+# True False
+PreeditStringInClientWindow=True
 

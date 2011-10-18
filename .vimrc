@@ -113,7 +113,7 @@ hi SpecialKey ctermfg=8
 "高亮当前行
 set cursorline
 set nocursorcolumn
-hi cursorline ctermbg=0
+"hi cursorline ctermbg=0
 
 """"""""""""""""""""""""""""""""""""""
 "Ctags 
