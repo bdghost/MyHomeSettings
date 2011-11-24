@@ -3,9 +3,9 @@
 	name = iven
 [alias]
     ci = commit -a
-    df = diff --color
-    dc = diff --color --cached
-    st = status
+    df = diff --color --word-diff
+    dc = diff --color --cached --word-diff
+    st = status -sb
     br = branch
     co = checkout
     lg = log --color -p
