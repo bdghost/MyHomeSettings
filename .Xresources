@@ -8,13 +8,15 @@ URxvt.foreground: white
 URxvt.colorUL: green
 URxvt.fading: 25
 
+! Geometry
+!URxvt.geometry: 128x40
 ! ScrollBar
 URxvt.scrollstyle: plain
 URxvt.scrollBar_right: True
 URxvt.scrollBar_floating: False
 
 ! Screen buffer
-URxvt.saveLines: 10000
+URxvt.saveLines: 1000
 
 ! Input method
 URxvt.inputMethod: fcitx
