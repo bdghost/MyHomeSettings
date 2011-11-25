@@ -3,8 +3,8 @@
 	name = iven
 [alias]
     ci = commit -a
-    df = diff --color --word-diff
-    dc = diff --color --cached --word-diff
+    df = diff --word-diff=color
+    dc = diff --word-diff=color --cached
     st = status -sb
     br = branch
     co = checkout
@@ -19,5 +19,7 @@
 	main-window-view = FileView
 [color]
 	ui = auto
+[diff]
+    wordregex = ",|.|=|'|\"|(|)|[^[:space:]()='\".,]+"
 [core]
 	excludesfile = /home/iven/.global_ignore
