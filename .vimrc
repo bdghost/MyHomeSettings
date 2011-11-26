@@ -23,13 +23,12 @@ let g:mapleader=","
 let g:C_MapLeader=","
 "关闭modelines
 set modelines=0
-"开启 pathogen
-call pathogen#runtime_append_all_bundles()
+"关闭时隐藏缓冲区
+set hidden
 
 """""""""""""""""""""""""""""""""""""""
 "界面
 """""""""""""""""""""""""""""""""""""""
-
 "显示行号
 set number
 "显示光标位置
@@ -39,7 +38,7 @@ set wildmenu
 "设置命令行高度
 set cmdheight=1
 "减少刷新和重画
-"set lazyredraw
+set lazyredraw
 "设置退格键
 set backspace=eol,start,indent
 "设置跨行键
@@ -62,20 +61,19 @@ set visualbell
 set showmatch
 set mat=2
 "高亮列
-"set colorcolumn=85
+set colorcolumn=85
 
 """""""""""""""""""""""""""""""""""""""
 "文本
 """""""""""""""""""""""""""""""""""""""
-
 "设置Tab键
 set expandtab
 set smarttab
 set tabstop=4
 set shiftwidth=4
 "自动替换Tab
-auto BufReadPost	*.c	%retab 4
-auto BufReadPost	*.h	%retab 4
+auto BufReadPost *.c %retab 4
+auto BufReadPost *.h %retab 4
 "自动缩进与智能缩进
 set autoindent
 set smartindent
@@ -95,18 +93,16 @@ set listchars=tab:>-,eol:☠
 """""""""""""""""""""""""""""""""""""""
 "状态条
 """""""""""""""""""""""""""""""""""""""
-
 set laststatus=2
 
 """""""""""""""""""""""""""""""""""""""
 "外观
 """""""""""""""""""""""""""""""""""""""
-
 "语法高亮
 syntax enable
 "设置颜色主题
 set t_Co=256
-colorscheme desert
+colorscheme molokai
 "隐藏字符
 hi NonText ctermfg=8
 hi SpecialKey ctermfg=8
@@ -116,64 +112,18 @@ set nocursorcolumn
 "hi cursorline ctermbg=0
 
 """"""""""""""""""""""""""""""""""""""
-"Ctags 
+"Ctags / Cscope
 """""""""""""""""""""""""""""""""""""""
-
 set autochdir
 "生成Ctags
 map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>
 autocmd FileType c set tags+=~/.vim/bundle/other/systags
+:set cscopequickfix=s-,c-,d-,i-,t-,e-
 
 """""""""""""""""""""""""""""""""""""""
 "跳转到上次编辑位置
 """""""""""""""""""""""""""""""""""""""
-
 :autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-
-"""""""""""""""""""""""""""""""""""""""
-"插件
-"""""""""""""""""""""""""""""""""""""""
-"设置Tagbar
-let g:tagbar_width = 30
-let g:tagbar_sort = 0
-let g:tagbar_compact = 1
-let g:tagbar_singleclick = 1
-let g:tagbar_foldlevel = 2
-let g:tagbar_autoshowtag = 1
-nmap <F10> :TagbarOpenAutoClose<cr>
-"autocmd VimEnter * nested TagbarOpen
-"设置delimitMate
-let delimitMate_expand_cr = 1
-"设置easymotion
-hi EasyMotionTarget ctermbg=none ctermfg=green
-hi EasyMotionShade  ctermbg=none ctermfg=darkgray
-"设置neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_max_list = 20
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_auto_select = 1
-let g:neocomplcache_enable_auto_delimiter = 1
-let g:neocomplcache_enable_fuzzy_completion = 1
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_snippets_disable_runtime_snippets = 1
-"imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-"smap <C-k>     <Plug>(neocomplcache_snippets_expand)
-"inoremap <expr><C-g>     neocomplcache#undo_completion()
-"imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-"设置AutoComplPop
-"let g:acp_enableAtStartup=0
-"let g:acp_completeoptPreview=1
-"let g:acp_behaviorKeywordLength=1
-"设置WinManager
-"let g:persistentBehaviour=0
-"let g:winManagerWindowLayout='BufExplorer,FileExplorer|TagList'
-"设置Pylint
-"autocmd FileType python compiler pylint
-"let g:pylint_onwrite = 0
-:set cscopequickfix=s-,c-,d-,i-,t-,e-
 
 """"""""""""""""""""""""""""""""""""""
 "快捷键
@@ -185,16 +135,16 @@ imap <leader>w <Esc>:w<cr>a
 "Paste开关
 set pastetoggle=<F2>
 "删除空行上的缩进
-map <F3> :%s/\s*$//g<cr>:noh<cr>''
+"map <F3> :%s/\s*$//g<cr>:noh<cr>''
 "去除空行
-map <F4> :g/^$/d<cr>:noh<cr>''
+"map <F4> :g/^$/d<cr>:noh<cr>''
 "编译运行
 "map <F5> :call CompileRun()<CR> 
-map <F5> :cd ..<cr>:!sudo ./setup.py install --prefix=/usr && yaner<CR>:cd Yaner<cr>
+"map <F5> :cd ..<cr>:!sudo ./setup.py install --prefix=/usr && yaner<CR>:cd Yaner<cr>
 "保存并关闭
-map <F11> :x<cr>
+"map <F11> :x<cr>
 "不保存关闭
-map <F12> :q!<cr>
+"map <F12> :q!<cr>
 "快速重载.vimrc
 map <leader>s :source ~/.vimrc<cr>
 "快速编辑.vimrc
@@ -226,6 +176,90 @@ nnoremap j gj
 nnoremap k gk
 "以 root 权限保存
 cmap w!! w !sudo tee % >/dev/null
+
+
+
+"""""""""""""""""""""""""""""""""""""""
+"VAM
+"""""""""""""""""""""""""""""""""""""""
+set rtp+=~/.vim/vim-addons/vim-addon-manager
+call vam#ActivateAddons(['snipmate', 'snipmate-snippets','Command-T',  'fugitive', 'ack', 'vim_easymotion', 'pyflakes', 'Gundo', 'indentpython3461', 'delimitMate', 'lusty', 'neocomplcache', 'fcitx', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
+call vam#install#Install(['cscope_macros', 'c213', 'CCTree', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
+
+"""""""""""""""""""""""""""""""""""""""
+"Tagbar
+"""""""""""""""""""""""""""""""""""""""
+let g:tagbar_width = 30
+let g:tagbar_sort = 0
+let g:tagbar_compact = 1
+let g:tagbar_singleclick = 1
+let g:tagbar_foldlevel = 2
+let g:tagbar_autoshowtag = 1
+nmap <F10> :TagbarOpenAutoClose<cr>
+"autocmd VimEnter * nested TagbarOpen
+
+"""""""""""""""""""""""""""""""""""""""
+"delimitMate
+"""""""""""""""""""""""""""""""""""""""
+let delimitMate_expand_cr = 1
+
+"""""""""""""""""""""""""""""""""""""""
+"easymotion
+"""""""""""""""""""""""""""""""""""""""
+hi EasyMotionTarget ctermbg=none ctermfg=green
+hi EasyMotionShade  ctermbg=none ctermfg=darkgray
+
+"""""""""""""""""""""""""""""""""""""""
+"neocomplcache
+"""""""""""""""""""""""""""""""""""""""
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_max_list = 20
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_enable_auto_delimiter = 1
+let g:neocomplcache_enable_fuzzy_completion = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_snippets_disable_runtime_snippets = 1
+"imap <C-k>     <Plug>(neocomplcache_snippets_expand)
+"smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+"inoremap <expr><C-g>     neocomplcache#undo_completion()
+"imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+"""""""""""""""""""""""""""""""""""""""
+"Gundo
+"""""""""""""""""""""""""""""""""""""""
+nnoremap <F9> :GundoToggle<CR>
+let g:gundo_right = 1
+let g:gundo_close_on_revert = 1
+
+"""""""""""""""""""""""""""""""""""""""
+"Ack
+"""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>a :Ack 
+
+"""""""""""""""""""""""""""""""""""""""
+"lusty
+"""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>b :LustyJuggler<CR>
+let g:LustyJugglerShowKeys = 'a'
+
+"""""""""""""""""""""""""""""""""""""""
+"fugitive
+"""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>g :Git 
+
+"""""""""""""""""""""""""""""""""""""""
+"Command-T
+"""""""""""""""""""""""""""""""""""""""
+:set wildignore+=*.o,*.pyc,*.pyo,.git,__pycache__
+
+"""""""""""""""""""""""""""""""""""""""
+"pylint
+"""""""""""""""""""""""""""""""""""""""
+"autocmd FileType python compiler pylint
+"let g:pylint_onwrite = 0
 
 """""""""""""""""""""""""""""""""""""""
 "Python
@@ -265,3 +299,31 @@ augroup setgenie
     au BufNewFile *.gs setlocal filetype="genie"
     au BufRead *.gs setlocal filetype="genie"
 augroup END 
+
+"""""""""""""""""""""""""""""""""""""""
+"VAM Full
+"""""""""""""""""""""""""""""""""""""""
+"fun SetupVAM()
+"    " YES, you can customize this vam_install_path path and everything still works!
+"    let vam_install_path = expand('$HOME') . '/.vim/vim-addons'
+"    exec 'set runtimepath+='.vam_install_path.'/vim-addon-manager'
+"
+"    if !filereadable(vam_install_path.'/vim-addon-manager/.git/config') && 1 == confirm("git clone VAM into ".vam_install_path."?","&Y\n&N")
+"        exec '!p='.shellescape(vam_install_path).'; mkdir -p "$p" && cd "$p" && git clone --depth 1 git://github.com/MarcWeber/vim-addon-manager.git'
+"        " VAM run helptags automatically if you install or update plugins
+"        exec 'helptags '.fnameescape(vam_install_path.'/vim-addon-manager/doc')
+"    endif
+"
+"    " Example drop git sources unless git is in PATH. Same plugins can
+"    " be installed form www.vim.org. Lookup MergeSources to get more control
+"    " let g:vim_addon_manager['drop_git_sources'] = !executable('git')
+"
+"    call vam#ActivateAddons([], {'auto_install' : 0})
+"    " sample: call vam#ActivateAddons(['pluginA','pluginB', ...], {'auto_install' : 0})
+"    " where 'pluginA' could be "git://" "github:YourName" or "snipmate-snippets" see vam#install#RewriteName()
+"endf
+"call SetupVAM()
+"" experimental: run after gui has been started (gvim) [3]
+"" option1: au VimEnter * call SetupVAM()
+"" option2: au GUIEnter * call SetupVAM()
+
