@@ -188,8 +188,8 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 "切换Tab
 "map <c-tab> <esc>:tabnext<cr>
 "切换buffer
-nmap <c-n> <esc>:bnext<cr>
-nmap <c-p> <esc>:bprevious<cr>
+"nmap <c-n> <esc>:bnext<cr>
+"nmap <c-p> <esc>:bprevious<cr>
 "展开与折叠开关
 nmap <space> za
 "分屏相关
@@ -200,6 +200,11 @@ nnoremap <C-l> <C-w>l
 nnoremap <leader>v <C-w>v<C-w>l
 "映射冒号
 nmap ; :
+"剪贴板
+nnoremap <C-y> "+y
+vnoremap <C-y> "+y
+nnoremap <C-p> "+gP
+vnoremap <C-p> "+gP
 
 """""""""""""""""""""""""""""""""""""""
 "Python
