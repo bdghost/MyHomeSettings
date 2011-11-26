@@ -205,6 +205,11 @@ nnoremap <C-y> "+y
 vnoremap <C-y> "+y
 nnoremap <C-p> "+gP
 vnoremap <C-p> "+gP
+"折行算作一行
+nnoremap j gj
+nnoremap k gk
+"以 root 权限保存
+cmap w!! w !sudo tee % >/dev/null
 
 """""""""""""""""""""""""""""""""""""""
 "Python
