@@ -149,6 +149,9 @@ let g:tagbar_autoshowtag = 1
 autocmd VimEnter * nested TagbarOpen
 "设置delimitMate
 let delimitMate_expand_cr = 1
+"设置easymotion
+hi EasyMotionTarget ctermbg=none ctermfg=green
+hi EasyMotionShade  ctermbg=none ctermfg=darkgray
 "设置WinManager
 "let g:persistentBehaviour=0
 "let g:winManagerWindowLayout='BufExplorer,FileExplorer|TagList'
