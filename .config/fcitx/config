@@ -1,102 +1,102 @@
 [Program]
-# Fcitx真正启动前延迟的秒数
+# Seconds sleep before fcitx really start
 DelayStart=0
-# 在窗口间共享状态
+# Share State Among Window
 # Available Value:
 # No All PerProgram
 ShareStateAmongWindow=No
-# 默认输入法状态
+# Default Input Method State
 # Available Value:
 # Close Inactive Active
 DefaultInputMethodState=Close
-# 这是 Fcitx 首次启动
+# It's the first time Fcitx Start.
 # Available Value:
 # True False
 FirstRun=False
 
 [Output]
-# 数字后跟半角符号
+# Use English Punc After a Number
 # Available Value:
 # True False
 HalfPuncAfterNumber=True
-# 回车键操作
+# Action after press enter
 # Available Value:
 # Nothing Clean Commit
 EnterAction=Commit
-# 联想模式禁用翻页
+# Disable Paging in Remind Mode
 # Available Value:
 # True False
 RemindModeDisablePaging=True
-# 快速切换英文模式时上屏
+# Send inputed Text if Switch to English Mode
 # Available Value:
 # True False
 SendTextWhenSwitchEng=False
-# 候选词个数
+# Candidate Word Number
 CandidateWordNumber=9
-# 提示词库中词组
+# Give the tips of Phrase
 # Available Value:
 # True False
 PhraseTips=True
 
 [Appearance]
-# 切换输入时显示输入条
+# Show Input Window After Trigger Input Mode
 # Available Value:
 # True False
 ShowInputWindowAfterTriggering=True
-# 序号后加点
+# Show Point After Index
 # Available Value:
 # True False
 ShowPointAfterIndex=True
-# 显示输入速度
+# Show Input Speed
 # Available Value:
 # True False
 ShowInputSpeed=True
-# 显示版本
+# Show Version
 # Available Value:
 # True False
 ShowVersion=True
-# 只有预编辑字符串时不显示输入窗口
+# Do not show input window if there is only preedit string
 # Available Value:
 # True False
 HideInputWindowWhenOnlyPreeditString=False
-# 只有一个候选词时不显示输入窗口（只有预编辑字符串时不显示窗口必须选中）
+# Do not show input window if there is one one candidate (Hide when only preedit string must be selected)
 # Available Value:
 # True False
 HideInputWindowWhenOnlyOneCandidate=False
 
 [Hotkey]
-# 快捷键: 切换输入法
+# Hot key of Triggering Input Method
 TriggerKey=CTRL_SPACE
-# 启用左Ctrl + 左Shift 在输入法间切换
+# Enable Left Ctrl + Left Shift to Switch Between Input Method
 # Available Value:
 # True False
 IMSwitchKey=True
-# 快捷键: 切换中英文输入
+# Hotkey of Switching Chinese and English Mode
 # Available Value:
 # R_CTRL R_SHIFT L_SHIFT L_CTRL Disabled
 SwitchKey=L_SHIFT
-# 双击中英文切换键时切换
+# Double click Switch Key to Change Mode
 # Available Value:
 # True False
 DoubleSwitchKey=False
-# 输入间隔
+# Interval of Two Key Input
 TimeInterval=250
-# 快捷键: 切换虚拟键盘
-VKSwitchKey=CTRL_ALT_K
-# 快捷键: 切换联想模式
+# Hotkey of Switching Virtual Keyboard
+VKSwitchKey=
+# Hotkey of Switching Remind Mode
 RemindSwitchKey=
-# 快捷键: 切换全角
-FullWidthSwitchKey=SHIFT_SPACE
-# 切换全角标点的快捷键
-PuncSwitchKey=ALT_SPACE
-# 快捷键: 前一页
+# Hotkey of Switching Full Width Character Mode
+FullWidthSwitchKey=
+# Hotkey of Switch Full Width Punc Mode
+PuncSwitchKey=
+# Hotkey of Going Prev Page
 PrevPageKey=-
-# 快捷键: 后一页
+# Hotkey of Going Next Page
 NextPageKey==
-# 快捷键: 选择第二第三候选词
-SecondThirdCandWordKey=SHIFT
-# 快捷键: 保存配置及输入历史
+# Hotkey to Choose Second and Third Candidate Word
+SecondThirdCandWordKey=
+# Hotkey of Saving All Config and Input History
 SaveAllKey=CTRL_ALT_S
-# 快捷键: 切换嵌入预编辑字符串
+# Hotkey of Switch Embeded Preedit
 SwitchPreedit=CTRL_ALT_P
 
