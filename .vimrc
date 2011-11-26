@@ -131,12 +131,6 @@ autocmd FileType c set tags+=~/.vim/bundle/other/systags
 :autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 """""""""""""""""""""""""""""""""""""""
-"Man Pages
-"""""""""""""""""""""""""""""""""""""""
-
-runtime ftplugin/Man.vim
-
-"""""""""""""""""""""""""""""""""""""""
 "插件
 """""""""""""""""""""""""""""""""""""""
 "设置Tagbar
@@ -152,13 +146,33 @@ let delimitMate_expand_cr = 1
 "设置easymotion
 hi EasyMotionTarget ctermbg=none ctermfg=green
 hi EasyMotionShade  ctermbg=none ctermfg=darkgray
+"设置neocomplcache
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_max_list = 20
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_enable_auto_delimiter = 1
+let g:neocomplcache_enable_fuzzy_completion = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_snippets_disable_runtime_snippets = 1
+"imap <C-k>     <Plug>(neocomplcache_snippets_expand)
+"smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+"inoremap <expr><C-g>     neocomplcache#undo_completion()
+"imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+"设置AutoComplPop
+"let g:acp_enableAtStartup=0
+"let g:acp_completeoptPreview=1
+"let g:acp_behaviorKeywordLength=1
 "设置WinManager
 "let g:persistentBehaviour=0
 "let g:winManagerWindowLayout='BufExplorer,FileExplorer|TagList'
-:set cscopequickfix=s-,c-,d-,i-,t-,e-
 "设置Pylint
 "autocmd FileType python compiler pylint
-let g:pylint_onwrite = 0
+"let g:pylint_onwrite = 0
+:set cscopequickfix=s-,c-,d-,i-,t-,e-
 
 """"""""""""""""""""""""""""""""""""""
 "快捷键
@@ -220,9 +234,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 "自动补全
 let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
-let g:acp_completeoptPreview=1
-"let g:acp_behaviorKeywordLength=1
-"autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType ruby set omnifunc=rubycomplete#Complete
 autocmd FileType c set omnifunc=ccomplete#Complete
 "autocmd FileType ada set omnifunc=adacomplete#Complete
