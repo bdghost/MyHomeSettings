@@ -140,7 +140,8 @@ let g:tagbar_compact = 1
 let g:tagbar_singleclick = 1
 let g:tagbar_foldlevel = 2
 let g:tagbar_autoshowtag = 1
-autocmd VimEnter * nested TagbarOpen
+nmap <F10> :TagbarOpenAutoClose<cr>
+"autocmd VimEnter * nested TagbarOpen
 "设置delimitMate
 let delimitMate_expand_cr = 1
 "设置easymotion
@@ -190,8 +191,6 @@ map <F4> :g/^$/d<cr>:noh<cr>''
 "编译运行
 "map <F5> :call CompileRun()<CR> 
 map <F5> :cd ..<cr>:!sudo ./setup.py install --prefix=/usr && yaner<CR>:cd Yaner<cr>
-"WinManager开关
-nmap <F10> :TagbarToggle<cr>
 "保存并关闭
 map <F11> :x<cr>
 "不保存关闭
