@@ -137,36 +137,19 @@ autocmd FileType c set tags+=~/.vim/bundle/other/systags
 runtime ftplugin/Man.vim
 
 """""""""""""""""""""""""""""""""""""""
-"编译运行
-"""""""""""""""""""""""""""""""""""""""
-
-"func CompileRun()
-"    exec "w"
-"    "C程序
-"    if &filetype == 'c'
-"        exec "!gcc -g -Wall -lm % -o %<"
-"        exec "!./%<"
-"    elseif &filetype == 'cpp'
-"        exec "!g++ %  -o %<"
-"        exec "!./%<"
-"    elseif &filetype == 'python'
-"        exec "!python %"
-"        exec "!pwd"
-"    endif
-"endfunc 
-
-"""""""""""""""""""""""""""""""""""""""
 "插件
 """""""""""""""""""""""""""""""""""""""
-"设置Tlist
-let Tlist_Exit_OnlyWindow=1
-let Tlist_Use_SingleClick=1
-let Tlist_Auto_Highlight_Tag=1
-let tlist_make_settings='make;m:makros;t:targets'
-let tlist_qmake_settings='qmake;t:SystemVariables'
+"设置Tagbar
+let g:tagbar_width = 30
+let g:tagbar_sort = 0
+let g:tagbar_compact = 1
+let g:tagbar_singleclick = 1
+let g:tagbar_foldlevel = 2
+let g:tagbar_autoshowtag = 1
+autocmd VimEnter * nested TagbarOpen
 "设置WinManager
-let g:persistentBehaviour=0
-let g:winManagerWindowLayout='BufExplorer,FileExplorer|TagList'
+"let g:persistentBehaviour=0
+"let g:winManagerWindowLayout='BufExplorer,FileExplorer|TagList'
 :set cscopequickfix=s-,c-,d-,i-,t-,e-
 "设置Pylint
 "autocmd FileType python compiler pylint
@@ -189,7 +172,7 @@ map <F4> :g/^$/d<cr>:noh<cr>''
 "map <F5> :call CompileRun()<CR> 
 map <F5> :cd ..<cr>:!sudo ./setup.py install --prefix=/usr && yaner<CR>:cd Yaner<cr>
 "WinManager开关
-map <F10> :WMToggle<cr>
+nmap <F10> :TagbarToggle<cr>
 "保存并关闭
 map <F11> :x<cr>
 "不保存关闭
