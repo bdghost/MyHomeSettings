@@ -106,7 +106,7 @@ set laststatus=2
 syntax enable
 "设置颜色主题
 set t_Co=256
-colorscheme slate
+colorscheme desert
 "隐藏字符
 hi NonText ctermfg=8
 hi SpecialKey ctermfg=8
@@ -121,7 +121,7 @@ set nocursorcolumn
 
 set autochdir
 "生成Ctags
-map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>:TlistUpdate<CR>
+map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>
 autocmd FileType c set tags+=~/.vim/bundle/other/systags
 
 """""""""""""""""""""""""""""""""""""""
@@ -147,6 +147,8 @@ let g:tagbar_singleclick = 1
 let g:tagbar_foldlevel = 2
 let g:tagbar_autoshowtag = 1
 autocmd VimEnter * nested TagbarOpen
+"设置delimitMate
+let delimitMate_expand_cr = 1
 "设置WinManager
 "let g:persistentBehaviour=0
 "let g:winManagerWindowLayout='BufExplorer,FileExplorer|TagList'
