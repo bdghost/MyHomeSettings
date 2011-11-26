@@ -10,12 +10,6 @@ if status --is-login
     # Initialize the environment
     . $FISH/initenv.fish
 
-    xrdb -merge ~/.Xresources &
-    xcompmgr -c &
-    urxvtd -q -f -o &
-    fcitx &
-    exec awesome
-
 end
 
 # vim:ts=4:sw=4:et:ft=fish:
