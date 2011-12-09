@@ -81,7 +81,7 @@ set smartindent
 set linebreak
 "C风格缩进
 "set cindent
-set guifont=terminus\ 10
+set guifont=terminus\ 12
 "自动补全
 set completeopt=longest,menuone,preview
 "文本折叠
@@ -183,8 +183,8 @@ cmap w!! w !sudo tee % >/dev/null
 "VAM
 """""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons(['snipmate', 'snipmate-snippets','Command-T',  'fugitive', 'ack', 'vim_easymotion', 'pyflakes', 'Gundo', 'indentpython3461', 'delimitMate', 'lusty', 'neocomplcache', 'fcitx', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
-call vam#install#Install(['cscope_macros', 'c213', 'CCTree', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
+call vam#ActivateAddons(['Command-T',  'fugitive', 'ack', 'vim_easymotion', 'pyflakes', 'Gundo', 'indentpython3461', 'delimitMate', 'lusty', 'neocomplcache', 'fcitx', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
+call vam#install#Install(['snipmate', 'snipmate-snippets','cscope_macros', 'c213', 'CCTree', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
 
 """""""""""""""""""""""""""""""""""""""
 "Tagbar
@@ -202,6 +202,7 @@ nmap <F10> :TagbarOpenAutoClose<cr>
 "delimitMate
 """""""""""""""""""""""""""""""""""""""
 let delimitMate_expand_cr = 1
+let delimitMate_quotes = "\" '"
 
 """""""""""""""""""""""""""""""""""""""
 "easymotion
@@ -223,9 +224,9 @@ let g:neocomplcache_snippets_disable_runtime_snippets = 1
 "imap <C-k>     <Plug>(neocomplcache_snippets_expand)
 "smap <C-k>     <Plug>(neocomplcache_snippets_expand)
 "inoremap <expr><C-g>     neocomplcache#undo_completion()
-"imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
-imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+"imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 """""""""""""""""""""""""""""""""""""""
 "Gundo
