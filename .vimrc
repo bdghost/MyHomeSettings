@@ -81,7 +81,7 @@ set smartindent
 set linebreak
 "C风格缩进
 "set cindent
-set guifont=terminus\ 10
+set guifont=terminus\ 12
 "自动补全
 set completeopt=longest,menuone,preview
 "文本折叠
@@ -202,6 +202,7 @@ nmap <F10> :TagbarOpenAutoClose<cr>
 "delimitMate
 """""""""""""""""""""""""""""""""""""""
 let delimitMate_expand_cr = 1
+let delimitMate_quotes = "\" '"
 
 """""""""""""""""""""""""""""""""""""""
 "easymotion

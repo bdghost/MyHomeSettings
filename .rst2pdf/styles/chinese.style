@@ -1,0 +1,27 @@
+{
+    "fontsAlias" : {
+        "stdFont": "AR PL SungtiL GB-Regular",
+        "stdBold": "WenQuanYi Micro Hei",
+        "stdItalic": "AR PL KaitiM GB-Regular",
+        "stdBoldItalic": "WenQuanYi Micro Hei-Regular",
+        "stdMono": "Ubuntu Mono-Regular",
+        "stdMonoBold": "Ubuntu Mono-Bold",
+        "stdMonoBoldItalic": "Ubuntu Mono-Bold Italic",
+        "stdMonoItalic": "Ubuntu Mono-Italic",
+        "stdSans": "AR PL SungtiL GB-Regular",
+        "stdSansBold": "WenQuanYi Micro Hei-Regular",
+        "stdSansItalic": "AR PL KaitiM GB-Regular",
+        "stdSansBoldItalic": "WenQuanYi Micro Hei-Regular"
+    },
+    "styles" : [
+        ["base", {
+            "wordWrap": "CJK"
+        }],
+        ["literal" , {
+            "wordWrap": "None"
+        }],
+        ["file", {
+            "parent": "literal"
+        }]
+    ]
+}
