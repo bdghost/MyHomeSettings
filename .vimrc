@@ -183,8 +183,8 @@ cmap w!! w !sudo tee % >/dev/null
 "VAM
 """""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons(['snipmate', 'snipmate-snippets','Command-T',  'fugitive', 'ack', 'vim_easymotion', 'pyflakes', 'Gundo', 'indentpython3461', 'delimitMate', 'lusty', 'neocomplcache', 'fcitx', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
-call vam#install#Install(['cscope_macros', 'c213', 'CCTree', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
+call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'vim_easymotion', 'pyflakes2441', 'Gundo', 'indentpython3461', 'delimitMate', 'lusty', 'neocomplcache', 'fcitx', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
+call vam#install#Install(['snipmate', 'snipmate-snippets', 'cscope_macros', 'c213', 'CCTree', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
 
 """""""""""""""""""""""""""""""""""""""
 "Tagbar
@@ -219,13 +219,13 @@ let g:neocomplcache_enable_auto_select = 1
 let g:neocomplcache_enable_auto_delimiter = 1
 let g:neocomplcache_enable_fuzzy_completion = 1
 let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_snippets_disable_runtime_snippets = 1
+"let g:neocomplcache_snippets_disable_runtime_snippets = 1
 "imap <C-k>     <Plug>(neocomplcache_snippets_expand)
 "smap <C-k>     <Plug>(neocomplcache_snippets_expand)
 "inoremap <expr><C-g>     neocomplcache#undo_completion()
-"imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
-imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+"imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 """""""""""""""""""""""""""""""""""""""
 "Gundo
@@ -253,7 +253,13 @@ nnoremap <leader>g :Git
 """""""""""""""""""""""""""""""""""""""
 "Command-T
 """""""""""""""""""""""""""""""""""""""
+nnoremap <leader>t :CommandT ..<CR>
 :set wildignore+=*.o,*.pyc,*.pyo,.git,__pycache__
+
+"""""""""""""""""""""""""""""""""""""""
+"pyflakes
+"""""""""""""""""""""""""""""""""""""""
+let g:pyflakes_use_quickfix = 0
 
 """""""""""""""""""""""""""""""""""""""
 "pylint
