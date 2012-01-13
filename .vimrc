@@ -225,7 +225,8 @@ let g:neocomplcache_min_syntax_length = 3
 "smap <C-k>     <Plug>(neocomplcache_snippets_expand)
 "inoremap <expr><C-g>     neocomplcache#undo_completion()
 imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
+inoremap <expr><C-l>  neocomplcache#complete_common_string()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
 "imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 """""""""""""""""""""""""""""""""""""""

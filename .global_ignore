@@ -15,6 +15,9 @@
 *~
 *.sw[a-z]
 
+# Kate
+.*.kate-sw[a-z]
+
 # Vim
 *.un~
 Session.vim

@@ -1,22 +1,22 @@
 [Profile]
-# Use Full Width Character
-# Available Value:
+# 使用全角字符
+# 可选值：
 # True False
 FullWidth=False
-# Use Wide Punctuation
-# Available Value:
+# 使用全角标点
+# 可选值：
 # True False
 WidePunc=True
-# Prompt the phrases after input
-# Available Value:
+# 输入后联想词组
+# 可选值：
 # True False
 UseRemind=False
-# Current Input Method Name
+# 当前输入法名称
 IMName=shuangpin
-# Current Enabled Input Method List
+# 当前启用的输入法列表
 EnabledIMList=shuangpin:True,pinyin:True
-# Show Preedit String in Client Window
-# Available Value:
+# 在客户端窗口中显示预编辑字符串
+# 可选值：
 # True False
-PreeditStringInClientWindow=True
+PreeditStringInClientWindow=False
 
