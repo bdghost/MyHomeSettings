@@ -5,6 +5,9 @@ if status --is-login
     set -gx FISH $HOME/.config/fish
     set -gx LANG zh_CN.utf8
 
+    set -gx LANG zh_CN.utf8
+    set fish_greeting
+
     # Default universal variables
     . $FISH/universal.fish
 

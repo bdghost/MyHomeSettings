@@ -2,13 +2,16 @@
 
 # Prompt colors
 if not set -q fish_color_branch
-    set -U fish_color_branch cyan
+    set -U fish_color_branch yellow
 end
 if not set -q fish_color_branch_dirty
     set -U fish_color_branch_dirty red
 end
 if not set -q fish_color_branch_cache_dirty
-    set -U fish_color_branch_cache_dirty yellow
+    set -U fish_color_branch_cache_dirty cyan
+end
+if not set -q fish_color_root
+    set -U fish_color_root red
 end
 
 # Custom script directory

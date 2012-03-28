@@ -12,11 +12,11 @@
     who = shortlog -s --
     ps = push origin --all
 [giggle]
-	main-window-maximized = true
-	main-window-geometry = 0x0+0+0
-	history-view-vpane-position = 84
-	file-view-vpane-position = 367
-	main-window-view = FileView
+	main-window-maximized = false
+	main-window-geometry = 947x631+346+409
+	history-view-vpane-position = 352
+	file-view-vpane-position = 300
+	main-window-view = HistoryView
 [color]
 	ui = auto
 [diff]

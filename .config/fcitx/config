@@ -86,19 +86,19 @@ DoubleSwitchKey=False
 # 输入间隔
 TimeInterval=250
 # 快捷键: 切换虚拟键盘
-VKSwitchKey=CTRL_ALT_B
+VKSwitchKey=
 # 快捷键: 切换联想模式
 RemindSwitchKey=
 # 快捷键: 切换全角
-FullWidthSwitchKey=SHIFT_SPACE
+FullWidthSwitchKey=
 # 切换全角标点的快捷键
-PuncSwitchKey=ALT_SPACE
+PuncSwitchKey=
 # 快捷键: 前一页
 PrevPageKey=-
 # 快捷键: 后一页
 NextPageKey==
 # 快捷键: 选择第二第三候选词
-SecondThirdCandWordKey=SHIFT
+SecondThirdCandWordKey=
 # 快捷键: 保存配置及输入历史
 SaveAllKey=CTRL_ALT_S
 # 快捷键: 切换嵌入预编辑字符串
