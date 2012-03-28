@@ -12,11 +12,11 @@ WidePunc=True
 # True False
 UseRemind=False
 # 当前输入法名称
-IMName=shuangpin
+IMName=sunpinyin
 # 当前启用的输入法列表
-EnabledIMList=shuangpin:True,pinyin:True
+EnabledIMList=sunpinyin:True
 # 在客户端窗口中显示预编辑字符串
 # 可选值：
 # True False
-PreeditStringInClientWindow=False
+PreeditStringInClientWindow=True
 
