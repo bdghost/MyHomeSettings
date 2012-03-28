@@ -22,7 +22,7 @@ URxvt.saveLines: 1000
 URxvt.inputMethod: fcitx
 
 ! Clickable link
-URxvt.perl-ext-common:  default,matcher,tabbed,url-select,clipboard
+URxvt.perl-ext-common:  default,matcher,tabbedex,url-select,clipboard
 URxvt.urlLauncher:      /usr/bin/firefox
 URxvt.matcher.button:   1 
 

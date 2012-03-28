@@ -1,0 +1,12 @@
+FCITX -- Get Signal No.: 11
+Obtained 10 stack frames.
+/usr/bin/fcitx() [0x4011c3]
+/lib/libc.so.6(+0x349f0) [0x7f03811189f0]
+/usr/lib/libX11.so.6(_XSend+0x27) [0x7f038002ca87]
+/usr/lib/libX11.so.6(_XFlush+0x20) [0x7f038002cf40]
+/usr/lib/libX11.so.6(_XGetRequest+0x9d) [0x7f038002fb4d]
+/usr/lib/libX11.so.6(XGetWindowProperty+0x85) [0x7f0380013245]
+/usr/lib/fcitx/fcitx-xim.so(+0x11a7e) [0x7f036d400a7e]
+/usr/lib/fcitx/fcitx-xim.so(+0x11b5a) [0x7f036d400b5a]
+/usr/lib/fcitx/fcitx-x11.so(+0x1a73) [0x7f0380324a73]
+/usr/lib/libfcitx-core.so.0(+0x649e) [0x7f0381abe49e]

@@ -1,5 +1,5 @@
 
-for p in $HOME/Scripts
+for p in $HOME/Scripts $HOME/.gem/ruby/1.9.1/bin
     if not [ -d $p ] continue; end
     if not contains $p $PATH
         set PATH $p $PATH

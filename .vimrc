@@ -81,7 +81,7 @@ set smartindent
 set linebreak
 "C风格缩进
 "set cindent
-set guifont=terminus\ 12
+set guifont=terminus\ 10
 "自动补全
 set completeopt=longest,menuone,preview
 "文本折叠
@@ -117,7 +117,7 @@ set nocursorcolumn
 set autochdir
 "生成Ctags
 map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>
-autocmd FileType c set tags+=~/.vim/bundle/other/systags
+autocmd FileType cpp set tags+=~/.vim/qt_tags
 :set cscopequickfix=s-,c-,d-,i-,t-,e-
 
 """""""""""""""""""""""""""""""""""""""
@@ -183,7 +183,7 @@ cmap w!! w !sudo tee % >/dev/null
 "VAM
 """""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'vim_easymotion', 'pyflakes2441', 'Gundo', 'indentpython3461', 'delimitMate', 'lusty', 'neocomplcache', 'fcitx', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
+call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'vim_easymotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'lusty', 'vimproc', 'unite', 'neocomplcache', 'neocomplcache-snippets-complete', 'fcitx', 'rails', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
 call vam#install#Install(['snipmate', 'snipmate-snippets', 'cscope_macros', 'c213', 'CCTree', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
 
 """""""""""""""""""""""""""""""""""""""
@@ -203,6 +203,7 @@ nmap <F10> :TagbarOpenAutoClose<cr>
 """""""""""""""""""""""""""""""""""""""
 let delimitMate_expand_cr = 1
 let delimitMate_quotes = "\" '"
+let delimitMate_excluded_ft = "html, rst"
 
 """""""""""""""""""""""""""""""""""""""
 "easymotion
@@ -213,13 +214,26 @@ hi EasyMotionShade  ctermbg=none ctermfg=darkgray
 """""""""""""""""""""""""""""""""""""""
 "neocomplcache
 """""""""""""""""""""""""""""""""""""""
+let g:acp_enableAtStartup = 0
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_max_list = 20
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_auto_select = 1
-let g:neocomplcache_enable_auto_delimiter = 1
+let g:neocomplcache_enable_auto_delimiter = 0
 let g:neocomplcache_enable_fuzzy_completion = 1
-let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_min_syntax_length = 2
+let g:neocomplcache_min_keyword_length = 2
+let g:neocomplcache_enable_cursor_hold_i = 1
+let g:neocomplcache_enable_insert_char_pre = 1
+let g:neocomplcache_manual_completion_start_length = 2
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.python = ''
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 "let g:neocomplcache_snippets_disable_runtime_snippets = 1
 "imap <C-k>     <Plug>(neocomplcache_snippets_expand)
 "smap <C-k>     <Plug>(neocomplcache_snippets_expand)
@@ -250,6 +264,7 @@ let g:LustyJugglerShowKeys = 'a'
 "fugitive
 """""""""""""""""""""""""""""""""""""""
 nnoremap <leader>g :Git 
+autocmd BufReadPost fugitive://* set bufhidden=delete
 
 """""""""""""""""""""""""""""""""""""""
 "Command-T
@@ -273,18 +288,18 @@ let g:pyflakes_use_quickfix = 0
 """""""""""""""""""""""""""""""""""""""
 
 "自动补全
-let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-"autocmd FileType ruby set omnifunc=rubycomplete#Complete
-autocmd FileType c set omnifunc=ccomplete#Complete
-"autocmd FileType ada set omnifunc=adacomplete#Complete
-"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType xhtml set omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-"autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-"autocmd FileType sql set omnifunc=sqlcomplete#Complete
+"let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+autocmd FileType c setlocal omnifunc=ccomplete#Complete
+"autocmd FileType ada setlocal omnifunc=adacomplete#Complete
+"autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType xhtml setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+"autocmd FileType sql setlocal omnifunc=sqlcomplete#Complete
 "快速运行
 au FileType python map <buffer> <leader><space> :w!<cr>:!python %<cr>
 
