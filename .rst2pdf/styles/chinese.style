@@ -1,16 +1,16 @@
 {
     "fontsAlias" : {
-        "stdFont": "AR PL SungtiL GB-Regular",
+        "stdFont": "AR PL UMing CN-Regular",
         "stdBold": "WenQuanYi Micro Hei",
-        "stdItalic": "AR PL KaitiM GB-Regular",
+        "stdItalic": "AR PL UKai CN-Regular",
         "stdBoldItalic": "WenQuanYi Micro Hei-Regular",
         "stdMono": "Ubuntu Mono-Regular",
         "stdMonoBold": "Ubuntu Mono-Bold",
         "stdMonoBoldItalic": "Ubuntu Mono-Bold Italic",
         "stdMonoItalic": "Ubuntu Mono-Italic",
-        "stdSans": "AR PL SungtiL GB-Regular",
+        "stdSans": "AR PL UMing CN-Regular",
         "stdSansBold": "WenQuanYi Micro Hei-Regular",
-        "stdSansItalic": "AR PL KaitiM GB-Regular",
+        "stdSansItalic": "AR PL UKai CN-Regular",
         "stdSansBoldItalic": "WenQuanYi Micro Hei-Regular"
     },
     "styles" : [

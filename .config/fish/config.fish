@@ -3,6 +3,7 @@ if status --is-login
 
     # Set fish config directory
     set -gx FISH $HOME/.config/fish
+    set -gx LANG zh_CN.utf8
 
     set -gx LANG zh_CN.utf8
     set fish_greeting

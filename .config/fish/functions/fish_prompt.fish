@@ -1,14 +1,14 @@
 function parse_git_dirty 
     git diff --quiet HEAD ^&-
     if test $status = 1
-        echo (set_color $fish_color_branch_dirty)"Δ"
+        echo (set_color $fish_color_branch_dirty)" Δ"
     end
 end
 
 function parse_git_branch
     # git branch outputs lines, the current branch is prefixed with a *
     set -l branch (git branch ^&- | awk '/*/ {print $2}') 
-    printf "%s<%s %s%s>" (set_color $fish_color_branch) $branch (parse_git_dirty) (set_color $fish_color_branch)
+    printf "%s<%s%s%s>" (set_color $fish_color_branch) $branch (parse_git_dirty) (set_color $fish_color_branch)
 end
 
 function parse_root

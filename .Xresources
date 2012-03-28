@@ -1,5 +1,6 @@
 ! Font
 URxvt.font:-misc-fixed-medium-r-normal--14-*-*-*-*-*-iso10646-1,xft:WenQuanYi Bitmap Song:size=10
+URxvt.imFont:-misc-fixed-medium-r-normal--14-*-*-*-*-*-iso10646-1,xft:WenQuanYi Bitmap Song:size=10
 
 ! Color
 URxvt.depth: 32
