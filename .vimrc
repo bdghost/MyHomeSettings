@@ -132,6 +132,10 @@ autocmd FileType cpp set tags+=~/.vim/qt_tags
 "快速保存
 nmap <leader>w :w<cr>
 imap <leader>w <Esc>:w<cr>a
+"nmap <leader>W :w !sudo tee % >/dev/null<cr>
+"imap <leader>W <Esc>:w !sudo tee % >/dev/null<cr>a
+nmap <leader>W :SudoWrite<cr>
+imap <leader>W <Esc>:SudoWrite<cr>a
 "Paste开关
 set pastetoggle=<F2>
 "删除空行上的缩进
@@ -174,8 +178,6 @@ vnoremap <C-p> "+gP
 "折行算作一行
 nnoremap j gj
 nnoremap k gk
-"以 root 权限保存
-cmap w!! w !sudo tee % >/dev/null
 
 
 
@@ -183,7 +185,7 @@ cmap w!! w !sudo tee % >/dev/null
 "VAM
 """""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'vim_easymotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'lusty', 'vimproc', 'unite', 'neocomplcache', 'neocomplcache-snippets-complete', 'sudo', 'fcitx', 'rails', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
+call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'vim_easymotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'lusty', 'vimproc', 'unite', 'neocomplcache', 'neocomplcache-snippets-complete', 'SudoEdit', 'fcitx', 'rails', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
 call vam#install#Install(['snipmate', 'snipmate-snippets', 'cscope_macros', 'c213', 'CCTree', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
 
 """""""""""""""""""""""""""""""""""""""
