@@ -1,0 +1,18 @@
+"hg6239 "(created 2011/07/03 00:00:06)"
+
+loadplugins '\.(js|penta)$'
+group user
+
+set guioptions+=N
+
+set passkeys+=mail.google.com:jke<CR>,gi
+set passkeys+=www.google.com/reader/:jkrvfA,ga
+set passkeys+=www.newsblur.com/:jkouA
+
+map -m n,v,i,c,t <C-a> <Pass>
+map -m n,v,i,c,t <C-c> <Pass>
+map -m i,c,t <C-v> <Pass>
+map -m i,c,t <C-x> <Pass>
+map -m i,c,t <C-z> <Pass>
+
+" vim: set ft=pentadactyl:
