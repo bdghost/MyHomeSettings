@@ -31,7 +31,7 @@ EnterAction=Commit
 # Available Value:
 # True False
 RemindModeDisablePaging=True
-# 快速切换英文模式时上屏
+# 切换到非激活模式时当前输入的原始文本上屏
 # Available Value:
 # True False
 SendTextWhenSwitchEng=False
@@ -75,7 +75,7 @@ TriggerKey=CTRL_SPACE
 # Available Value:
 # True False
 IMSwitchKey=True
-# 快捷键: 切换中英文输入
+# 快捷键: 切换激活/非激活状态
 # Available Value:
 # R_CTRL R_SHIFT L_SHIFT L_CTRL ALT_L_SHIFT ALT_R_SHIFT Disabled
 SwitchKey=L_SHIFT
