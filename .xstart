@@ -1,9 +1,6 @@
-#xrdb -merge ~/.Xresources
-#urxvtd -f -q -o &
-#~/Scripts/urxvtq.sh &
-
-#compiz ccp &
-#kde4-window-decorator &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+xinput set-button-map "USB Optical Mouse" 3 2 1 4 5 &
 dex -a &
 xscreensaver -no-splash &
 fusion-icon
+
