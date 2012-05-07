@@ -1,0 +1,9 @@
+#xrdb -merge ~/.Xresources
+#urxvtd -f -q -o &
+#~/Scripts/urxvtq.sh &
+
+#compiz ccp &
+#kde4-window-decorator &
+dex -a &
+xscreensaver -no-splash &
+fusion-icon

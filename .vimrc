@@ -225,8 +225,8 @@ let g:neocomplcache_enable_auto_delimiter = 0
 let g:neocomplcache_enable_fuzzy_completion = 1
 let g:neocomplcache_min_syntax_length = 2
 let g:neocomplcache_min_keyword_length = 2
-let g:neocomplcache_enable_cursor_hold_i = 1
-let g:neocomplcache_enable_insert_char_pre = 1
+"let g:neocomplcache_enable_cursor_hold_i = 1
+"let g:neocomplcache_enable_insert_char_pre = 1
 let g:neocomplcache_manual_completion_start_length = 2
 if !exists('g:neocomplcache_omni_patterns')
     let g:neocomplcache_omni_patterns = {}

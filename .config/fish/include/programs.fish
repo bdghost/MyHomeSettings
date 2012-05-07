@@ -1,5 +1,5 @@
 
-for b in 'firefox' 'lynx' 'links' 'w3m'
+for b in 'firefox-nightly' 'firefox' 'lynx' 'links' 'w3m'
     if [ -x /usr/bin/$b ]
         set -x BROWSER $b
         break
