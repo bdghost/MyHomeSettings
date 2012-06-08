@@ -25,6 +25,8 @@ let g:C_MapLeader=","
 set modelines=0
 "关闭时隐藏缓冲区
 set hidden
+"使用 X11 剪贴板
+set clipboard=unnamed
 
 """""""""""""""""""""""""""""""""""""""
 "界面
@@ -71,6 +73,8 @@ set expandtab
 set smarttab
 set tabstop=4
 set shiftwidth=4
+autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
+autocmd FileType html setlocal tabstop=2 shiftwidth=2
 "自动替换Tab
 auto BufReadPost *.c %retab 4
 auto BufReadPost *.h %retab 4
@@ -185,7 +189,7 @@ nnoremap k gk
 "VAM
 """""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neocomplcache-snippets-complete', 'SudoEdit', 'fcitx', 'rails', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
+call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neocomplcache-snippets-complete', 'Indent_Guides', 'SudoEdit', 'fcitx', 'rails', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
 call vam#install#Install(['snipmate', 'snipmate-snippets', 'cscope_macros', 'c213', 'CCTree', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
 
 """""""""""""""""""""""""""""""""""""""
@@ -285,6 +289,15 @@ let g:pyflakes_use_quickfix = 0
 """""""""""""""""""""""""""""""""""""""
 "autocmd FileType python compiler pylint
 "let g:pylint_onwrite = 0
+
+"""""""""""""""""""""""""""""""""""""""
+"Indent Guides
+"""""""""""""""""""""""""""""""""""""""
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesEven ctermbg = 234
+hi IndentGuidesOdd ctermbg = 234
+let g:indent_guides_guide_size = 1
+autocmd FileType python :IndentGuidesEnable
 
 """""""""""""""""""""""""""""""""""""""
 "Python
