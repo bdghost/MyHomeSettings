@@ -85,7 +85,7 @@ set smartindent
 set linebreak
 "C风格缩进
 "set cindent
-set guifont=terminus\ 10
+set guifont=Ubuntu\ Mono\ for\ Powerline\ 11
 "自动补全
 set completeopt=longest,menuone,preview
 "文本折叠
@@ -189,7 +189,7 @@ nnoremap k gk
 "VAM
 """""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neocomplcache-snippets-complete', 'Indent_Guides', 'SudoEdit', 'fcitx', 'rails', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
+call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'Powerline', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neocomplcache-snippets-complete', 'Indent_Guides', 'SudoEdit', 'fcitx', 'rails', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
 call vam#install#Install(['snipmate', 'snipmate-snippets', 'cscope_macros', 'c213', 'CCTree', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
 
 """""""""""""""""""""""""""""""""""""""
@@ -216,6 +216,11 @@ let delimitMate_excluded_ft = "html, rst"
 """""""""""""""""""""""""""""""""""""""
 hi EasyMotionTarget ctermbg=none ctermfg=green
 hi EasyMotionShade  ctermbg=none ctermfg=darkgray
+
+"""""""""""""""""""""""""""""""""""""""
+"Powerline
+"""""""""""""""""""""""""""""""""""""""
+let g:Powerline_symbols = "fancy"
 
 """""""""""""""""""""""""""""""""""""""
 "neocomplcache
