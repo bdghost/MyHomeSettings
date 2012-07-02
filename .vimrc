@@ -185,8 +185,8 @@ nnoremap k gk
 "VAM
 """""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neocomplcache-snippets-complete', 'SudoEdit', 'fcitx', 'rails', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
-call vam#install#Install(['snipmate', 'snipmate-snippets', 'cscope_macros', 'c213', 'CCTree', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
+call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neocomplcache-snippets-complete', 'SudoEdit', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
+call vam#install#Install(['snipmate', 'snipmate-snippets', 'cscope_macros', 'c213', 'CCTree', 'rails', 'fcitx', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
 
 """""""""""""""""""""""""""""""""""""""
 "Tagbar
@@ -232,7 +232,8 @@ if !exists('g:neocomplcache_omni_patterns')
     let g:neocomplcache_omni_patterns = {}
 endif
 let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.python = ''
+let g:neocomplcache_omni_patterns.python = '[^. *\t]\.\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.python3 = '[^. *\t]\.\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
@@ -251,6 +252,7 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 nnoremap <F9> :GundoToggle<CR>
 let g:gundo_right = 1
 let g:gundo_close_on_revert = 1
+let g:gundo_prefer_python3 = 1
 
 """""""""""""""""""""""""""""""""""""""
 "Ack
@@ -292,7 +294,7 @@ let g:pyflakes_use_quickfix = 0
 
 "自动补全
 "let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=python3complete#Complete
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType c setlocal omnifunc=ccomplete#Complete
 "autocmd FileType ada setlocal omnifunc=adacomplete#Complete
@@ -303,8 +305,6 @@ autocmd FileType c setlocal omnifunc=ccomplete#Complete
 "autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 "autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "autocmd FileType sql setlocal omnifunc=sqlcomplete#Complete
-"快速运行
-au FileType python map <buffer> <leader><space> :w!<cr>:!python %<cr>
 
 """""""""""""""""""""""""""""""""""""""
 "Vala
