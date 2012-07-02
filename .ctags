@@ -6,3 +6,4 @@
 --regex-qmake=/^([[:upper:]_]+)/\1/t,SystemVariables/
 --python-kinds=-i
 
+--python-kinds=-i

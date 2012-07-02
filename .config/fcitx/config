@@ -4,11 +4,11 @@ TriggerKey=CTRL_SPACE
 # 额外的激活输入法快捷键
 # Available Value:
 # R_CTRL R_SHIFT L_SHIFT L_CTRL ALT_L_SHIFT ALT_R_SHIFT CTRL Both SHIFT Both Disabled
-SwitchKey=Disabled
+SwitchKey=L_SHIFT
 # 激活输入法
 ActivateKey=
 # 取消激活输入法
-InactivateKey=
+InactivateKey=LSHIFT
 # 启用输入法间切换
 # Available Value:
 # True False
