@@ -20,10 +20,10 @@ function parse_root
 end
 
 function fish_prompt
-    if test -z (git branch --quiet | grep fatal:)
-        printf '%s%s %s %s ' (set_color $fish_color_cwd) (prompt_pwd) (parse_git_branch) (parse_root)
-    else
+    if test -z (git branch --quiet 2>/dev/null | grep \*\ )
         printf '%s%s %s ' (set_color $fish_color_cwd) (prompt_pwd) (parse_root)
+    else
+        printf '%s%s %s %s ' (set_color $fish_color_cwd) (prompt_pwd) (parse_git_branch) (parse_root)
     end 
 end
 
