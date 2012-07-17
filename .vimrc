@@ -13,6 +13,7 @@ set nocompatible
 set autoread
 "设置鼠标
 set mouse=a
+set ttymouse=xterm2
 "设置历史
 set history=400
 "设置缺省路径
@@ -74,7 +75,10 @@ set smarttab
 set tabstop=4
 set shiftwidth=4
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
+autocmd FileType eruby setlocal tabstop=2 shiftwidth=2
 autocmd FileType html setlocal tabstop=2 shiftwidth=2
+autocmd FileType css setlocal tabstop=2 shiftwidth=2
+autocmd FileType scss setlocal tabstop=2 shiftwidth=2
 "自动替换Tab
 auto BufReadPost *.c %retab 4
 auto BufReadPost *.h %retab 4
@@ -189,7 +193,7 @@ nnoremap k gk
 "VAM
 """""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'Powerline', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neocomplcache-snippets-complete', 'Indent_Guides', 'SudoEdit', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
+call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'Powerline', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neocomplcache-snippets-complete', 'Indent_Guides', 'SudoEdit', 'ragtag', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
 call vam#install#Install(['snipmate', 'snipmate-snippets', 'cscope_macros', 'c213', 'CCTree', 'rails', 'fcitx', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
 
 """""""""""""""""""""""""""""""""""""""
@@ -235,8 +239,8 @@ let g:neocomplcache_enable_fuzzy_completion = 1
 let g:neocomplcache_min_syntax_length = 2
 let g:neocomplcache_min_keyword_length = 2
 let g:neocomplcache_manual_completion_start_length = 2
-"let g:neocomplcache_enable_cursor_hold_i = 1
-"let g:neocomplcache_enable_insert_char_pre = 1
+let g:neocomplcache_enable_cursor_hold_i = 1
+let g:neocomplcache_enable_insert_char_pre = 1
 if !exists('g:neocomplcache_omni_patterns')
     let g:neocomplcache_omni_patterns = {}
 endif
