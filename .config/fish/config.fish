@@ -13,7 +13,7 @@ if status --is-login
     . $FISH/initenv.fish
 
    if test -z $DISPLAY
-       if test (tty) == /dev/tty6
+       if test (tty) = /dev/tty6
            exec startx
        end
    end
