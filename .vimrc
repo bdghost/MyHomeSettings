@@ -72,16 +72,12 @@ set colorcolumn=85
 "设置Tab键
 set expandtab
 set smarttab
-set tabstop=4
-set shiftwidth=4
-autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
-autocmd FileType eruby setlocal tabstop=2 shiftwidth=2
-autocmd FileType html setlocal tabstop=2 shiftwidth=2
-autocmd FileType css setlocal tabstop=2 shiftwidth=2
-autocmd FileType scss setlocal tabstop=2 shiftwidth=2
+set tabstop=2
+set shiftwidth=2
+autocmd FileType python setlocal tabstop=4 shiftwidth=4
 "自动替换Tab
-auto BufReadPost *.c %retab 4
-auto BufReadPost *.h %retab 4
+auto BufReadPost *.c %retab 2
+auto BufReadPost *.h %retab 2
 "自动缩进与智能缩进
 set autoindent
 set smartindent
@@ -96,7 +92,7 @@ set completeopt=longest,menuone,preview
 "set foldmethod=indent
 "不可见字符
 set list
-set listchars=tab:>-,eol:☠
+set listchars=tab:>-,eol:┐
 
 """""""""""""""""""""""""""""""""""""""
 "状态条
@@ -108,12 +104,6 @@ set laststatus=2
 """""""""""""""""""""""""""""""""""""""
 "语法高亮
 syntax enable
-"设置颜色主题
-set t_Co=256
-colorscheme molokai
-"隐藏字符
-hi NonText ctermfg=8
-hi SpecialKey ctermfg=8
 "高亮当前行
 set cursorline
 set nocursorcolumn
@@ -193,8 +183,17 @@ nnoremap k gk
 "VAM
 """""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'Powerline', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neocomplcache-snippets-complete', 'Indent_Guides', 'SudoEdit', 'ragtag', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc'], {'auto_install' : 1})
+call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'Powerline', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neocomplcache-snippets-complete', 'Indent_Guides', 'SudoEdit', 'ragtag', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc', 'molokai', 'Lucius'], {'auto_install' : 1})
 call vam#install#Install(['snipmate', 'snipmate-snippets', 'cscope_macros', 'c213', 'CCTree', 'rails', 'fcitx', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
+
+"设置颜色主题
+set t_Co=256
+colorscheme molokai
+"隐藏字符
+hi NonText ctermfg=8 ctermbg=none
+hi SpecialKey ctermfg=8 ctermbg=none
+hi Normal ctermbg=none
+hi LineNr0 ctermbg=none
 
 """""""""""""""""""""""""""""""""""""""
 "Tagbar
@@ -305,8 +304,8 @@ let g:pyflakes_use_quickfix = 0
 "Indent Guides
 """""""""""""""""""""""""""""""""""""""
 let g:indent_guides_auto_colors = 0
-hi IndentGuidesEven ctermbg = 234
-hi IndentGuidesOdd ctermbg = 234
+hi IndentGuidesEven ctermbg = 236
+hi IndentGuidesOdd ctermbg = 237
 let g:indent_guides_guide_size = 1
 autocmd FileType python :IndentGuidesEnable
 
