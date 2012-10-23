@@ -1,1 +1,18 @@
-exec ck-launch-session dbus-launch ~/.xstart
+#exec dbus-launch ~/.xstart
+
+# Start a D-Bus session
+source /etc/X11/xinit/xinitrc.d/30-dbus
+# Start GNOME Keyring
+eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+# You probably need to do this too:
+export SSH_AUTH_SOCK
+export GPG_AGENT_INFO
+export GNOME_KEYRING_CONTROL
+export GNOME_KEYRING_PID
+
+sudo sh -c 'echo bfq > /sys/block/sda/queue/scheduler' &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+xinput set-button-map "USB Optical Mouse" 3 2 1 4 5 &
+xinput set-button-map "SynPS/2 Synaptics TouchPad" 1 2 3 5 4 &
+dex -a &
+wm.sh

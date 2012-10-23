@@ -1,6 +1,6 @@
 
 # Set system path
-set -x PATH /bin /usr/bin /sbin /usr/sbin /usr/bin/vendor_perl /usr/bin/core_perl
+set -x PATH /usr/lib/ccache/bin $HOME/Scripts $HOME/.gem/ruby/1.9.1/bin /bin /usr/bin /sbin /usr/sbin /usr/bin/vendor_perl /usr/bin/core_perl
 
 # Unset bad variables
 set -e TERMCAP

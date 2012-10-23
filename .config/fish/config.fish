@@ -13,8 +13,8 @@ if status --is-login
     . $FISH/initenv.fish
 
    if test -z $DISPLAY
-       if test (tty) = /dev/tty6
-           exec startx
+       if test (fgconsole) = 2
+           exec startx -- vt1 >~/.xlog ^&1
        end
    end
 end
