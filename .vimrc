@@ -76,8 +76,8 @@ set tabstop=4
 set shiftwidth=4
 autocmd FileType python setlocal tabstop=4 shiftwidth=4
 "自动替换Tab
-auto BufReadPost *.c %retab 2
-auto BufReadPost *.h %retab 2
+"auto BufReadPost *.c %retab 2
+"auto BufReadPost *.h %retab 2
 "自动缩进与智能缩进
 set autoindent
 set smartindent
@@ -183,7 +183,7 @@ nnoremap k gk
 "VAM
 """""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'Powerline', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neocomplcache-snippets-complete', 'Indent_Guides', 'SudoEdit', 'ragtag', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc', 'molokai', 'Lucius'], {'auto_install' : 1})
+call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'Powerline', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neocomplcache-snippets-complete', 'Indent_Guides', 'SudoEdit', 'ragtag', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc', 'molokai', 'Tabular'], {'auto_install' : 1})
 call vam#install#Install(['snipmate', 'snipmate-snippets', 'cscope_macros', 'c213', 'CCTree', 'rails', 'fcitx', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
 
 "设置颜色主题
@@ -253,6 +253,7 @@ let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 "imap <C-k>     <Plug>(neocomplcache_snippets_expand)
 "smap <C-k>     <Plug>(neocomplcache_snippets_expand)
 "inoremap <expr><C-g>     neocomplcache#undo_completion()
+smap <C-l> <Plug>(neocomplcache_snippets_force_jump)
 imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-l>  neocomplcache#complete_common_string()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()

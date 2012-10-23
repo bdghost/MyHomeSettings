@@ -4,7 +4,7 @@
         "stdBold": "WenQuanYi Micro Hei",
         "stdItalic": "AR PL UKai CN-Regular",
         "stdBoldItalic": "WenQuanYi Micro Hei-Regular",
-        "stdMono": "Ubuntu Mono-Regular",
+        "stdMono": "Droid Sans Mono-Regular",
         "stdMonoBold": "Ubuntu Mono-Bold",
         "stdMonoBoldItalic": "Ubuntu Mono-Bold Italic",
         "stdMonoItalic": "Ubuntu Mono-Italic",
@@ -17,11 +17,26 @@
         ["base", {
             "wordWrap": "CJK"
         }],
-        ["literal" , {
+        ["literal", {
             "wordWrap": "None"
         }],
         ["file", {
             "parent": "literal"
+        }],
+        ["bodytext", {
+            "firstLineIndent": 20
+        }],
+        ["bullet-list", {
+            "firstLineIndent": 0
+        }],
+        ["bullet-list-item", {
+            "firstLineIndent": 0
+        }],
+        ["item-list", {
+            "firstLineIndent": 0
+        }],
+        ["item-list-item", {
+            "firstLineIndent": 0
         }]
     ]
 }
