@@ -2,6 +2,8 @@
 # Set system path
 set -x PATH /usr/lib/ccache/bin $HOME/Scripts $HOME/.gem/ruby/1.9.1/bin /bin /usr/bin /sbin /usr/sbin /usr/bin/vendor_perl /usr/bin/core_perl
 
+set -x Automoc4_DIR /usr/lib/automoc4
+
 # Unset bad variables
 set -e TERMCAP
 set -e MANPATH
