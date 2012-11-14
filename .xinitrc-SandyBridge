@@ -12,6 +12,7 @@ export GNOME_KEYRING_PID
 
 sudo sh -c 'echo bfq > /sys/block/sda/queue/scheduler' &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-#xinput set-button-map 10 3 2 1 4 5 &
+xinput set-button-map 10 3 2 1 4 5 &
 dex -a &
+nitrogen --restore &
 wm.sh
