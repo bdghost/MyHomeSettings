@@ -12,7 +12,7 @@ SwitchKey=L_SHIFT
 # 激活输入法
 ActivateKey=
 # 取消激活输入法
-InactivateKey=LSHIFT
+InactivateKey=
 # 启用输入法间切换
 # Available Value:
 # True False
