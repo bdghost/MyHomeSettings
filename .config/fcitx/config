@@ -1,18 +1,26 @@
 [Hotkey]
 # 切换激活/非激活输入法
 TriggerKey=CTRL_SPACE
+# 只在用额外切换键取消激活后才使用它进行切换
+# Available Value:
+# True False
+UseExtraTriggerKeyOnlyWhenUseItToInactivate=True
 # 额外的激活输入法快捷键
 # Available Value:
-# R_CTRL R_SHIFT L_SHIFT L_CTRL ALT_L_SHIFT ALT_R_SHIFT CTRL Both SHIFT Both Disabled
+# R_CTRL R_SHIFT L_SHIFT L_CTRL ALT_L_SHIFT ALT_R_SHIFT CTRL Both SHIFT Both L_ALT R_ALT ALT Both Disabled
 SwitchKey=L_SHIFT
 # 激活输入法
 ActivateKey=
 # 取消激活输入法
-InactivateKey=LSHIFT
+InactivateKey=
 # 启用输入法间切换
 # Available Value:
 # True False
 IMSwitchKey=True
+# 输入法间切换时包含未激活状态
+# Available Value:
+# True False
+IMSwitchIncludeInactive=False
 # 输入法切换键
 # Available Value:
 # CTRL_SHIFT ALT_SHIFT CTRL_SUPER ALT_SUPER
@@ -67,7 +75,7 @@ EnterAction=Commit
 # Available Value:
 # True False
 RemindModeDisablePaging=True
-# 切换到非激活模式时当前输入的原始文本上屏
+# 切换状态时提交
 # Available Value:
 # True False
 SendTextWhenSwitchEng=False
@@ -83,10 +91,18 @@ PhraseTips=True
 DontCommitPreeditWhenUnfocus=False
 
 [Appearance]
-# 切换输入时显示输入条
+# 切换输入法时显示输入法提示
 # Available Value:
 # True False
 ShowInputWindowAfterTriggering=True
+# 获得输入焦点并且输入法变化时显示输入法提示
+# Available Value:
+# True False
+ShowInputWindowWhenFocusIn=False
+# 输入法提示只在激活状态显示
+# Available Value:
+# True False
+ShowInputWindowOnlyWhenActive=True
 # 显示输入速度
 # Available Value:
 # True False
@@ -99,7 +115,7 @@ ShowVersion=True
 # Available Value:
 # True False
 HideInputWindowWhenOnlyPreeditString=True
-# 只有一个候选词时不显示输入窗口（只有预编辑字符串时不显示窗口必须选中）
+# 只有一个候选词和预编辑字符串时不显示输入窗口
 # Available Value:
 # True False
 HideInputWindowWhenOnlyOneCandidate=False

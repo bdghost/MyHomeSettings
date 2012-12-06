@@ -75,6 +75,7 @@ set smarttab
 set tabstop=4
 set shiftwidth=4
 autocmd FileType python setlocal tabstop=4 shiftwidth=4
+autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
 "自动替换Tab
 "auto BufReadPost *.c %retab 2
 "auto BufReadPost *.h %retab 2
@@ -183,8 +184,8 @@ nnoremap k gk
 "VAM
 """""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'Powerline', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neosnippet', 'Indent_Guides', 'SudoEdit', 'ragtag', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc', 'molokai', 'Tabular', 'rails'], {'auto_install' : 1})
-call vam#install#Install(['snipmate', 'snipmate-snippets', 'cscope_macros', 'c213', 'CCTree', 'fcitx', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
+call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'Powerline', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neosnippet', 'Indent_Guides', 'SudoEdit', 'ragtag', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc', 'molokai', 'AutoAlign', 'rails', 'fcitx'], {'auto_install' : 1})
+call vam#install#Install(['snipmate', 'snipmate-snippets', 'cscope_macros', 'c213', 'CCTree', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
 
 "设置颜色主题
 set t_Co=256

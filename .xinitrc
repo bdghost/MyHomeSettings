@@ -15,4 +15,5 @@ sudo sh -c 'echo bfq > /sys/block/sda/queue/scheduler' &
 xinput set-button-map "USB Optical Mouse" 3 2 1 4 5 &
 xinput set-button-map "SynPS/2 Synaptics TouchPad" 1 2 3 5 4 &
 dex -a &
+nitrogen --restore &
 wm.sh
