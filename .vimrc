@@ -72,9 +72,10 @@ set colorcolumn=85
 "设置Tab键
 set expandtab
 set smarttab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 autocmd FileType python setlocal tabstop=4 shiftwidth=4
+autocmd FileType cmake setlocal tabstop=4 shiftwidth=4
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
 "自动替换Tab
 "auto BufReadPost *.c %retab 2
