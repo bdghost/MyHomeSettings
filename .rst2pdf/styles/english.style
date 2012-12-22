@@ -1,0 +1,20 @@
+fontsAlias:
+    stdBold: DejaVu Sans-Bold
+    stdBoldItalic: DejaVu Sans-BoldOblique
+    stdFont: DejaVu Sans-Regular
+    stdItalic: DejaVu Sans-Oblique
+    stdMono: Ubuntu Mono
+    stdMonoBold: Ubuntu Mono-Bold
+    stdMonoBoldItalic: Ubuntu Mono-BoldOblique
+    stdMonoItalic: Ubuntu Mono-Oblique
+    stdSans: DejaVu Sans
+    stdSansBold: DejaVu Sans-Bold
+    stdSansBoldItalic: DejaVu Sans-BoldOblique
+    stdSansItalic: DejaVu Sans-Oblique
+    stdSerif: DejaVu Serif
+
+styles:
+    base:
+        kerning: true
+    file:
+        backColor: #FFF0E0
