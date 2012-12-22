@@ -72,9 +72,10 @@ set colorcolumn=85
 "设置Tab键
 set expandtab
 set smarttab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 autocmd FileType python setlocal tabstop=4 shiftwidth=4
+autocmd FileType cmake setlocal tabstop=4 shiftwidth=4
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
 "自动替换Tab
 "auto BufReadPost *.c %retab 2
@@ -116,7 +117,7 @@ set nocursorcolumn
 set autochdir
 "生成Ctags
 map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>
-autocmd FileType cpp set tags+=~/.vim/qt_tags
+autocmd FileType cpp set tags+=/home/iven/.vim/qt_tags
 :set cscopequickfix=s-,c-,d-,i-,t-,e-
 
 """""""""""""""""""""""""""""""""""""""
@@ -193,6 +194,8 @@ colorscheme molokai
 "隐藏字符
 hi NonText ctermfg=8 ctermbg=none
 hi SpecialKey ctermfg=8 ctermbg=none
+hi Pmenu ctermfg=grey ctermbg=black
+hi PmenuSel ctermfg=yellow ctermbg=black
 hi Normal ctermbg=none
 hi LineNr0 ctermbg=none
 
@@ -231,14 +234,14 @@ let g:Powerline_symbols = "fancy"
 """""""""""""""""""""""""""""""""""""""
 let g:acp_enableAtStartup = 0
 let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_max_list = 20
+"let g:neocomplcache_max_list = 20
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_auto_select = 1
-let g:neocomplcache_enable_auto_delimiter = 1
+"let g:neocomplcache_enable_auto_delimiter = 1
 let g:neocomplcache_enable_fuzzy_completion = 1
 let g:neocomplcache_min_syntax_length = 2
 let g:neocomplcache_min_keyword_length = 2
-let g:neocomplcache_manual_completion_start_length = 2
+"let g:neocomplcache_manual_completion_start_length = 2
 let g:neocomplcache_enable_cursor_hold_i = 1
 let g:neocomplcache_enable_insert_char_pre = 1
 if !exists('g:neocomplcache_omni_patterns')
@@ -259,6 +262,11 @@ imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>
 inoremap <expr><C-l>  neocomplcache#complete_common_string()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 "imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+"""""""""""""""""""""""""""""""""""""""
+"NeoSnippet
+"""""""""""""""""""""""""""""""""""""""
+let g:neosnippet#snippets_directory='~/Workspace/MyHomeSettings/snippets/'
 
 """""""""""""""""""""""""""""""""""""""
 "Gundo
