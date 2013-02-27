@@ -185,7 +185,7 @@ nnoremap k gk
 "VAM
 """""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'powerline', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neosnippet', 'Indent_Guides', 'SudoEdit', 'ragtag', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc', 'molokai', 'AutoAlign', 'rails', 'fcitx'], {'auto_install' : 1})
+call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'powerline', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neosnippet', 'Indent_Guides', 'SudoEdit', 'ragtag', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc', 'molokai', 'AutoAlign', 'rails', 'fcitx', 'ZenCoding'], {'auto_install' : 1})
 "call vam#install#Install(['snipmate', 'snipmate-snippets', 'cscope_macros', 'c213', 'CCTree', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
 
 "设置颜色主题
@@ -318,6 +318,12 @@ hi IndentGuidesEven ctermbg = 236
 hi IndentGuidesOdd ctermbg = 237
 let g:indent_guides_guide_size = 1
 autocmd FileType python :IndentGuidesEnable
+
+"""""""""""""""""""""""""""""""""""""""
+"ZenCoding
+"""""""""""""""""""""""""""""""""""""""
+let g:user_zen_leader_key = '`'
+let g:use_zen_complete_tag = 1
 
 """""""""""""""""""""""""""""""""""""""
 "Python
