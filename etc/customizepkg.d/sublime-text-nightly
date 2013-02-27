@@ -1,0 +1,14 @@
+# This is an example of config file for customizepkg
+#  Copy this file in /etc/customizepkg.d/mplayer to use it
+#
+# syntax works like this:
+#ACTION CONTEXT PATTERN VALUE 
+#
+#Action can be: remove, add or replace
+#Context can be: depends, conflicts, makedepends etc.. or global for matching regexp in the all PKGBUILD
+#Pattern can be any rexgexp 
+#Value (optionnal) can be any string 
+#
+
+replace#global#ln -s "/opt/${_pkgrealname}/${_pkgrealname}" "${pkgdir}/usr/bin/subl"#ln -s "/opt/${_pkgrealname}/${_pkgrealname}" "${pkgdir}/usr/bin/subl"; cd ${pkgdir}/opt/${_pkgrealname}; perl -pe "s/\\\\x{33}\\\\x{42}\\\\x{30}\\\\x{32}/\\\\x{32}\\\\x{42}\\\\x{30}\\\\x{32}/g" < sublime_text > sublime_text_new; mv sublime_text_new sublime_text; chmod \\+x sublime_text
+  ln -s "/opt/${_pkgrealname}/${_pkgrealname}" "${pkgdir}/usr/bin/subl"
