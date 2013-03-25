@@ -1,0 +1,33 @@
+[user]
+  email = xulijian@qiyi.com
+  name = Xu Lijian
+[alias]
+  ci = commit -a
+  df = diff --word-diff=color
+  dc = diff --word-diff=color --cached
+  st = status -sb
+  br = branch
+  co = checkout
+  lg = log --color -p
+  who = shortlog -s --
+  ps = push origin --all
+[giggle]
+  main-window-maximized = false
+  main-window-geometry = 947x631+346+409
+  history-view-vpane-position = 352
+  file-view-vpane-position = 300
+  main-window-view = HistoryView
+[color]
+  ui = auto
+[diff]
+  #wordregex = ",|.|=|'|\"|(|)|[^[:space:]()='\".,_]+"
+  wordregex = "=|'|\"|[^[:space:]()='\".,]+"
+[core]
+  excludesfile = /home/iven/.global_ignore
+[push]
+  default = matching
+[sendemail]
+  smtpserver = smtp.mail.qiyi.com
+  from = xulijian@qiyi.com
+  smtpuser = xulijian
+  smtppass = blWV0VY5hLB8g
