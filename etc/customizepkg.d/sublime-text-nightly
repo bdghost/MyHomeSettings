@@ -10,5 +10,5 @@
 #Value (optionnal) can be any string 
 #
 
-replace#global#ln -s "/opt/${_pkgrealname}/${_pkgrealname}" "${pkgdir}/usr/bin/subl"#ln -s "/opt/${_pkgrealname}/${_pkgrealname}" "${pkgdir}/usr/bin/subl"; cd ${pkgdir}/opt/${_pkgrealname}; perl -pe "s/\\\\x{33}\\\\x{42}\\\\x{30}\\\\x{32}/\\\\x{32}\\\\x{42}\\\\x{30}\\\\x{32}/g" < sublime_text > sublime_text_new; mv sublime_text_new sublime_text; chmod \\+x sublime_text
+replace#global#ln -s "/opt/sublime_text_3/sublime_text" "${pkgdir}/usr/bin/subl3"#ln -s "/opt/sublime_text_3/sublime_text" "${pkgdir}/usr/bin/subl3"; cd ${pkgdir}/opt/sublime_text_3; perl -pe "s/\\\\x{33}\\\\x{42}\\\\x{30}\\\\x{32}/\\\\x{32}\\\\x{42}\\\\x{30}\\\\x{32}/g" < sublime_text > sublime_text_new; mv sublime_text_new sublime_text; chmod \\+x sublime_text
   ln -s "/opt/${_pkgrealname}/${_pkgrealname}" "${pkgdir}/usr/bin/subl"
