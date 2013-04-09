@@ -26,6 +26,15 @@
         ["bodytext", {
             "firstLineIndent": 20
         }],
+        ["figure", {
+            "firstLineIndent": 0
+        }],
+        ["figure-caption", {
+            "firstLineIndent": 0
+        }],
+        ["image", {
+            "firstLineIndent": 0
+        }],
         ["bullet-list", {
             "firstLineIndent": 0
         }],

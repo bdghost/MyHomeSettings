@@ -1,0 +1,30 @@
+{
+	"auto_complete_commit_on_tab": true,
+	"color_scheme": "Packages/Theme - Flatland/Flatland.tmtheme",
+	"default_line_ending": "unix",
+	"ensure_newline_at_eof_on_save": true,
+	"fallback_encoding": "GB18030",
+	"font_face": "Droid Sans Mono",
+	"font_size": 10,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"rulers":
+	[
+		80,
+		90
+	],
+	"scroll_past_end": false,
+	"tab_size": 2,
+	"theme": "Flatland.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"vintage_ctrl_keys": true,
+	"vintage_start_in_command_mode": true
+}
