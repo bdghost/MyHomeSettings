@@ -1,5 +1,5 @@
 
-#if status --is-login
+if status --is-login
     # Set fish config directory
     set -gx FISH $HOME/.config/fish
 
@@ -17,6 +17,6 @@
            exec startx -- vt1 >~/.xlog ^&1
        end
    end
-#end
+end
 
 # vim:ts=4:sw=4:et:ft=fish:
