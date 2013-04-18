@@ -87,7 +87,7 @@ set smartindent
 set linebreak
 "C风格缩进
 "set cindent
-set guifont=Ubuntu\ Mono\ for\ Powerline\ 11
+"set guifont=Ubuntu\ Mono\ for\ Powerline\ 11
 "自动补全
 set completeopt=longest,menuone,preview
 "文本折叠
@@ -227,7 +227,7 @@ hi EasyMotionShade  ctermbg=none ctermfg=darkgray
 """""""""""""""""""""""""""""""""""""""
 "Powerline
 """""""""""""""""""""""""""""""""""""""
-let g:Powerline_symbols = "fancy"
+"let g:Powerline_symbols = "fancy"
 
 """""""""""""""""""""""""""""""""""""""
 "neocomplcache
