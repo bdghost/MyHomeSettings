@@ -1,6 +1,5 @@
 {
 	"auto_complete_commit_on_tab": true,
-	"update_check": false,
 	"caret_style": "wide",
 	"color_scheme": "Packages/Theme - Flatland/Flatland.tmtheme",
 	"default_line_ending": "unix",
@@ -26,6 +25,7 @@
 	"theme": "Flatland.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
+	"update_check": false,
 	"vintage_ctrl_keys": true,
 	"vintage_start_in_command_mode": true
 }
