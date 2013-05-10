@@ -251,8 +251,11 @@ let g:neocomplcache_enable_fuzzy_completion = 1
 let g:neocomplcache_min_syntax_length = 2
 let g:neocomplcache_min_keyword_length = 2
 "let g:neocomplcache_manual_completion_start_length = 2
-let g:neocomplcache_enable_cursor_hold_i = 1
-let g:neocomplcache_enable_insert_char_pre = 1
+"let g:neocomplcache_enable_cursor_hold_i = 1
+"let g:neocomplcache_enable_insert_char_pre = 1
+let g:neocomplcache_enable_prefetch = 1
+let g:neocomplcache_lock_iminsert = 1
+let g:neocomplcache_use_vimproc = 1
 if !exists('g:neocomplcache_omni_patterns')
     let g:neocomplcache_omni_patterns = {}
 endif
@@ -262,20 +265,17 @@ let g:neocomplcache_omni_patterns.python3 = '[^. *\t]\.\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-"let g:neocomplcache_snippets_disable_runtime_snippets = 1
-"imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-"smap <C-k>     <Plug>(neocomplcache_snippets_expand)
-"inoremap <expr><C-g>     neocomplcache#undo_completion()
-smap <C-l> <Plug>(neocomplcache_snippets_force_jump)
-imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-l>  neocomplcache#complete_common_string()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
-"imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <silent> <expr><CR> pumvisible() ? neocomplcache#smart_close_popup() . "\<CR>" : "\<CR>"
 
 """""""""""""""""""""""""""""""""""""""
 "NeoSnippet
 """""""""""""""""""""""""""""""""""""""
 let g:neosnippet#snippets_directory='~/Workspace/MyHomeSettings/snippets/'
+let g:neosnippet#enable_preview=1
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? neocomplcache#close_popup() : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 """""""""""""""""""""""""""""""""""""""
 "Gundo
@@ -343,14 +343,14 @@ let g:use_zen_complete_tag = 1
 autocmd FileType python setlocal omnifunc=python3complete#Complete
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType c setlocal omnifunc=ccomplete#Complete
-"autocmd FileType ada setlocal omnifunc=adacomplete#Complete
-"autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType xhtml setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-"autocmd FileType sql setlocal omnifunc=sqlcomplete#Complete
+autocmd FileType ada setlocal omnifunc=adacomplete#Complete
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType xhtml setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType sql setlocal omnifunc=sqlcomplete#Complete
 
 """""""""""""""""""""""""""""""""""""""
 "Vala
