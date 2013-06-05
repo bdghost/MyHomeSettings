@@ -1,10 +1,10 @@
 systemd --user &
 xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
 xrandr --addmode VGA1 1920x1080_60.00
-xrandr --output VGA1 --mode 1920x1080_60.00 
+xrandr --output VGA1 --rotate left --mode 1920x1080_60.00 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/bin/xscreensaver -no-splash &
-xinput set-button-map "PixArt USB Optical Mouse" 3 2 1 4 5 &
+#xinput set-button-map "PixArt USB Optical Mouse" 3 2 1 4 5 &
 qdbus org.kde.kded /kded loadModule appmenu &
 dex -a &
 #nitrogen --restore &

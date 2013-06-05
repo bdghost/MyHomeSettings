@@ -81,15 +81,16 @@ autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
 "auto BufReadPost *.c %retab 2
 "auto BufReadPost *.h %retab 2
 "自动缩进与智能缩进
-set autoindent
-set smartindent
+"set autoindent
+"set smartindent
 "换行不截断单词
 set linebreak
 "C风格缩进
 "set cindent
 "set guifont=Ubuntu\ Mono\ for\ Powerline\ 11
 "自动补全
-set completeopt=longest,menuone,preview
+set completeopt=longest,menuone
+"set completeopt=longest,menuone,preview
 "文本折叠
 "set foldmethod=indent
 "不可见字符
@@ -273,7 +274,7 @@ inoremap <silent> <expr><CR> pumvisible() ? neocomplcache#smart_close_popup() . 
 "NeoSnippet
 """""""""""""""""""""""""""""""""""""""
 let g:neosnippet#snippets_directory='~/Workspace/MyHomeSettings/snippets/'
-let g:neosnippet#enable_preview=1
+"let g:neosnippet#enable_preview=1
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? neocomplcache#close_popup() : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
