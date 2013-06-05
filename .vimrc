@@ -80,9 +80,8 @@ autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
 "自动替换Tab
 "auto BufReadPost *.c %retab 2
 "auto BufReadPost *.h %retab 2
-"自动缩进与智能缩进
+"自动缩进
 "set autoindent
-"set smartindent
 "换行不截断单词
 set linebreak
 "C风格缩进
@@ -275,7 +274,11 @@ inoremap <silent> <expr><CR> pumvisible() ? neocomplcache#smart_close_popup() . 
 """""""""""""""""""""""""""""""""""""""
 let g:neosnippet#snippets_directory='~/Workspace/MyHomeSettings/snippets/'
 "let g:neosnippet#enable_preview=1
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? neocomplcache#close_popup() : "\<TAB>"
+imap <expr><TAB>
+      \ neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" :
+      \ pumvisible() ? neocomplcache#close_popup() :
+      \ neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" :
+      \ "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 """""""""""""""""""""""""""""""""""""""
