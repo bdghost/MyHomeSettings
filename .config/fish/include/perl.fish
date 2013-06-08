@@ -12,4 +12,6 @@ if [ -d /usr/lib/perl5/core_perl/bin ]
     set PATH $PATH /usr/lib/perl5/core_perl/bin
 end
 
+set -gx PERL_LWP_SSL_VERIFY_HOSTNAME 0
+
 # vim:ts=4:sw=4:et:ft=fish:

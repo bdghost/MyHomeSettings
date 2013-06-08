@@ -17,17 +17,17 @@ set ttymouse=xterm2
 "设置历史
 set history=400
 "设置缺省路径
-set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+"set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 "设置mapleader
-let mapleader=","
 let g:mapleader=","
-let g:C_MapLeader=","
 "关闭modelines
 set modelines=0
 "关闭时隐藏缓冲区
 set hidden
 "使用 X11 剪贴板
 set clipboard=unnamed
+"自动切换目录
+set autochdir
 
 """""""""""""""""""""""""""""""""""""""
 "界面
@@ -57,7 +57,7 @@ nnoremap <leader><space> :noh<cr>
 "设置magic
 set magic
 "关闭提示音
-set noerrorbells
+"set noerrorbells
 set visualbell
 "set visualbell t_vb=
 "自动匹配括号
@@ -80,18 +80,16 @@ autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
 "自动替换Tab
 "auto BufReadPost *.c %retab 2
 "auto BufReadPost *.h %retab 2
-"自动缩进
-"set autoindent
 "换行不截断单词
 set linebreak
-"C风格缩进
-"set cindent
-"set guifont=Ubuntu\ Mono\ for\ Powerline\ 11
 "自动补全
 set completeopt=longest,menuone
 "set completeopt=longest,menuone,preview
 "文本折叠
-"set foldmethod=indent
+set foldmethod=indent
+set foldlevelstart=99
+"展开与折叠开关
+nmap <space> zA
 "不可见字符
 set list
 set listchars=tab:>-,eol:┐
@@ -114,10 +112,9 @@ set nocursorcolumn
 """"""""""""""""""""""""""""""""""""""
 "Ctags / Cscope
 """""""""""""""""""""""""""""""""""""""
-set autochdir
 "生成Ctags
 map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>
-autocmd FileType cpp set tags+=/home/iven/.vim/qt_tags
+autocmd FileType cpp set tags+=~/.vim/qt_tags
 :set cscopequickfix=s-,c-,d-,i-,t-,e-
 
 """""""""""""""""""""""""""""""""""""""
@@ -132,36 +129,19 @@ autocmd FileType cpp set tags+=/home/iven/.vim/qt_tags
 "快速保存
 nmap <leader>w :w<cr>
 imap <leader>w <Esc>:w<cr>a
-"nmap <leader>W :w !sudo tee % >/dev/null<cr>
-"imap <leader>W <Esc>:w !sudo tee % >/dev/null<cr>a
 nmap <leader>W :SudoWrite<cr>
 imap <leader>W <Esc>:SudoWrite<cr>a
-"Paste开关
-set pastetoggle=<F2>
-"删除空行上的缩进
-"map <F3> :%s/\s*$//g<cr>:noh<cr>''
-"去除空行
-"map <F4> :g/^$/d<cr>:noh<cr>''
-"编译运行
-"map <F5> :call CompileRun()<CR> 
-"map <F5> :cd ..<cr>:!sudo ./setup.py install --prefix=/usr && yaner<CR>:cd Yaner<cr>
-"保存并关闭
-"map <F11> :x<cr>
-"不保存关闭
-"map <F12> :q!<cr>
 "快速重载.vimrc
 map <leader>s :source ~/.vimrc<cr>
 "快速编辑.vimrc
 map <leader>e :e ~/.vimrc<cr>
-"当.vimrc改变时，自动重载
-autocmd! bufwritepost .vimrc source ~/.vimrc
+"当.vimrc改变时，自动重载（插件也会重新加载）
+"autocmd! bufwritepost .vimrc source ~/.vimrc
 "切换Tab
 "map <c-tab> <esc>:tabnext<cr>
 "切换buffer
 "nmap <c-n> <esc>:bnext<cr>
 "nmap <c-p> <esc>:bprevious<cr>
-"展开与折叠开关
-nmap <space> za
 "分屏相关
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -170,23 +150,27 @@ nnoremap <C-l> <C-w>l
 nnoremap <leader>v <C-w>v<C-w>l
 "映射冒号
 nmap ; :
-"剪贴板
-nnoremap <C-y> "+y
-vnoremap <C-y> "+y
-nnoremap <C-p> "+gP
-vnoremap <C-p> "+gP
 "折行算作一行
 nnoremap j gj
 nnoremap k gk
-
-
 
 """""""""""""""""""""""""""""""""""""""
 "VAM
 """""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'powerline', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neosnippet', 'Indent_Guides', 'SudoEdit', 'ragtag', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc', 'molokai', 'AutoAlign', 'rails', 'fcitx', 'ZenCoding'], {'auto_install' : 1})
-"call vam#install#Install(['snipmate', 'snipmate-snippets', 'cscope_macros', 'c213', 'CCTree', 'gtk-vim-syntax', 'CSApprox'], {'auto_install' : 1})
+fun SetupVAM()
+  let c = get(g:, 'vim_addon_manager', {})
+  let g:vim_addon_manager = c
+  let c.plugin_root_dir = expand('$HOME', 1) . '/.vim/vim-addons'
+  let &rtp.=(empty(&rtp)?'':',').c.plugin_root_dir.'/vim-addon-manager'
+  " let g:vim_addon_manager = { your config here see "commented version" example and help
+  if !isdirectory(c.plugin_root_dir.'/vim-addon-manager/autoload')
+    execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '
+                \ shellescape(c.plugin_root_dir.'/vim-addon-manager', 1)
+  endif
+  call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'powerline', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neosnippet', 'Indent_Guides', 'SudoEdit', 'ragtag', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc', 'molokai', 'AutoAlign', 'rails', 'fcitx', 'ZenCoding'], {'auto_install' : 1})
+endfun
+call SetupVAM()
 
 "设置颜色主题
 set t_Co=256
@@ -374,31 +358,4 @@ augroup setgenie
     au BufNewFile *.gs setlocal filetype="genie"
     au BufRead *.gs setlocal filetype="genie"
 augroup END 
-
-"""""""""""""""""""""""""""""""""""""""
-"VAM Full
-"""""""""""""""""""""""""""""""""""""""
-"fun SetupVAM()
-"    " YES, you can customize this vam_install_path path and everything still works!
-"    let vam_install_path = expand('$HOME') . '/.vim/vim-addons'
-"    exec 'set runtimepath+='.vam_install_path.'/vim-addon-manager'
-"
-"    if !filereadable(vam_install_path.'/vim-addon-manager/.git/config') && 1 == confirm("git clone VAM into ".vam_install_path."?","&Y\n&N")
-"        exec '!p='.shellescape(vam_install_path).'; mkdir -p "$p" && cd "$p" && git clone --depth 1 git://github.com/MarcWeber/vim-addon-manager.git'
-"        " VAM run helptags automatically if you install or update plugins
-"        exec 'helptags '.fnameescape(vam_install_path.'/vim-addon-manager/doc')
-"    endif
-"
-"    " Example drop git sources unless git is in PATH. Same plugins can
-"    " be installed form www.vim.org. Lookup MergeSources to get more control
-"    " let g:vim_addon_manager['drop_git_sources'] = !executable('git')
-"
-"    call vam#ActivateAddons([], {'auto_install' : 0})
-"    " sample: call vam#ActivateAddons(['pluginA','pluginB', ...], {'auto_install' : 0})
-"    " where 'pluginA' could be "git://" "github:YourName" or "snipmate-snippets" see vam#install#RewriteName()
-"endf
-"call SetupVAM()
-"" experimental: run after gui has been started (gvim) [3]
-"" option1: au VimEnter * call SetupVAM()
-"" option2: au GUIEnter * call SetupVAM()
 
