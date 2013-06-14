@@ -74,6 +74,7 @@ set expandtab
 set smarttab
 set tabstop=2
 set shiftwidth=2
+autocmd FileType cpp setlocal tabstop=8 shiftwidth=4 noexpandtab
 autocmd FileType python setlocal tabstop=4 shiftwidth=4
 autocmd FileType cmake setlocal tabstop=4 shiftwidth=4
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
