@@ -169,7 +169,7 @@ fun SetupVAM()
     execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '
                 \ shellescape(c.plugin_root_dir.'/vim-addon-manager', 1)
   endif
-  call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'powerline', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neosnippet', 'Indent_Guides', 'SudoEdit', 'ragtag', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc', 'molokai', 'AutoAlign', 'rails', 'fcitx', 'ZenCoding'], {'auto_install' : 1})
+  call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'powerline', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neosnippet', 'Indent_Guides', 'SudoEdit', 'ragtag', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc', 'molokai', 'AutoAlign', 'rails', 'jinja', 'fcitx', 'ZenCoding'], {'auto_install' : 1})
 endfun
 call SetupVAM()
 
