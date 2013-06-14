@@ -11,6 +11,7 @@
   lg = log --color -p
   who = shortlog -s --
   ps = push origin --all
+  pl = pull --rebase
 [giggle]
   main-window-maximized = false
   main-window-geometry = 947x631+346+409

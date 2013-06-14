@@ -15,4 +15,4 @@ sleep 10 && qdbus org.kde.kded /kded loadModule appmenu &
 xscreensaver -no-splash &
 dex -a &
 #nitrogen --restore &
-wm.sh
+exec ~/Scripts/wm.sh
