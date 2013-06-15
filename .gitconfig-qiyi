@@ -31,4 +31,3 @@
   smtpserver = smtp.mail.qiyi.com
   from = xulijian@qiyi.com
   smtpuser = xulijian
-  smtppass = blWV0VY5hLB8g
