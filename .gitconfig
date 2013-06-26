@@ -1,28 +1,29 @@
 [user]
-	email = ivenvd@gmail.com
-	name = iven
+  email = ivenvd@gmail.com
+  name = iven
 [alias]
-    ci = commit -a
-    df = diff --word-diff=color
-    dc = diff --word-diff=color --cached
-    st = status -sb
-    br = branch
-    co = checkout
-    lg = log --color -p
-    who = shortlog -s --
-    ps = push origin --all
+  ci = commit -a
+  df = diff --word-diff=color
+  dc = diff --word-diff=color --cached
+  st = status -sb
+  br = branch
+  co = checkout
+  lg = log --color -p
+  who = shortlog -s --
+  ps = push origin --all
+  pl = pull --rebase
 [giggle]
-	main-window-maximized = false
-	main-window-geometry = 947x631+346+409
-	history-view-vpane-position = 352
-	file-view-vpane-position = 300
-	main-window-view = HistoryView
+  main-window-maximized = false
+  main-window-geometry = 947x631+346+409
+  history-view-vpane-position = 352
+  file-view-vpane-position = 300
+  main-window-view = HistoryView
 [color]
-	ui = auto
+  ui = auto
 [diff]
-    #wordregex = ",|.|=|'|\"|(|)|[^[:space:]()='\".,_]+"
-    wordregex = "=|'|\"|[^[:space:]()='\".,]+"
+  #wordregex = ",|.|=|'|\"|(|)|[^[:space:]()='\".,_]+"
+  wordregex = "=|'|\"|[^[:space:]()='\".,]+"
 [core]
-	excludesfile = /home/iven/.global_ignore
+  excludesfile = /home/iven/.global_ignore
 [push]
-	default = matching
+  default = matching
