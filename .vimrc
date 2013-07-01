@@ -159,7 +159,7 @@ nnoremap k gk
 "VAM
 """""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/vim-addons/vim-addon-manager
-fun SetupVAM()
+fun! SetupVAM()
   let c = get(g:, 'vim_addon_manager', {})
   let g:vim_addon_manager = c
   let c.plugin_root_dir = expand('$HOME', 1) . '/.vim/vim-addons'
@@ -169,7 +169,7 @@ fun SetupVAM()
     execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '
                 \ shellescape(c.plugin_root_dir.'/vim-addon-manager', 1)
   endif
-  call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'delimitMate', 'powerline', 'LustyJuggler', 'YouCompleteMe', 'UltiSnips', 'Indent_Guides', 'SudoEdit', 'Tagbar', 'vimcdoc', 'molokai', 'AutoAlign', 'fcitx', 'Supertab', 'vim-multiple-cursors'], {'auto_install' : 1})
+  call vam#ActivateAddons(['ctrlp', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'delimitMate', 'powerline', 'LustyJuggler', 'YouCompleteMe', 'UltiSnips', 'Indent_Guides', 'SudoEdit', 'Tagbar', 'vimcdoc', 'molokai', 'AutoAlign', 'fcitx', 'Supertab', "The_NERD_Commenter", 'vim-multiple-cursors'], {'auto_install' : 1})
   let g:ft_addons = {
         \ 'python': ['indentpython%3461', 'vim-python-virtualenv'],
         \ 'ruby': ['rails'],
@@ -273,10 +273,9 @@ nnoremap <leader>g :Git
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 """""""""""""""""""""""""""""""""""""""
-"Command-T
+"ctrlp
 """""""""""""""""""""""""""""""""""""""
-nnoremap <leader>t :CommandT ..<CR>
-:set wildignore+=*.o,*.pyc,*.pyo,.git,__pycache__
+set wildignore+=*.so,*.o,*.pyc,*.pyo,.git,__pycache__,*.swp,*.zip
 
 """""""""""""""""""""""""""""""""""""""
 "Indent Guides
