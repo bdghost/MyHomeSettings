@@ -169,7 +169,7 @@ fun SetupVAM()
     execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '
                 \ shellescape(c.plugin_root_dir.'/vim-addon-manager', 1)
   endif
-  call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'powerline', 'LustyJuggler', 'vimproc', 'unite', 'neocomplcache', 'neosnippet', 'Indent_Guides', 'SudoEdit', 'ragtag', 'github:majutsushi/tagbar', 'github:liangfeng/vimcdoc', 'molokai', 'AutoAlign', 'rails', 'jinja', 'fcitx', 'ZenCoding'], {'auto_install' : 1})
+  call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'powerline', 'LustyJuggler', 'YouCompleteMe', 'UltiSnips', 'Indent_Guides', 'SudoEdit', 'Tagbar', 'vimcdoc', 'molokai', 'AutoAlign', 'rails', 'jinja', 'fcitx', 'ZenCoding', 'Supertab', 'vim-multiple-cursors'], {'auto_install' : 1})
 endfun
 call SetupVAM()
 
@@ -183,6 +183,21 @@ hi Pmenu ctermfg=grey ctermbg=black
 hi PmenuSel ctermfg=yellow ctermbg=black
 hi Normal ctermbg=none
 hi LineNr0 ctermbg=none
+hi Visual ctermfg=lightyellow ctermbg=233
+
+"""""""""""""""""""""""""""""""""""""""
+"YCM
+"""""""""""""""""""""""""""""""""""""""
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_seed_identifiers_with_syntax=1
+"let g:ycm_key_invoke_completion='<C-j>'
+let g:ycm_key_list_select_completion=['<C-TAB>', '<Down>']
+let g:ycm_key_list_previous_completion=['<C-S-TAB>', '<Up>']
+
+"""""""""""""""""""""""""""""""""""""""
+"Supertab
+"""""""""""""""""""""""""""""""""""""""
+let g:SuperTabDefaultCompletionType = '<C-TAB>'
 
 """""""""""""""""""""""""""""""""""""""
 "Tagbar
@@ -200,8 +215,11 @@ nmap <F10> :TagbarOpenAutoClose<cr>
 "delimitMate
 """""""""""""""""""""""""""""""""""""""
 let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1
+let delimitMate_balance_matchpairs = 1
 let delimitMate_quotes = "\" '"
 let delimitMate_excluded_ft = "html, rst"
+au FileType python let b:delimitMate_nesting_quotes = ['"']
 
 """""""""""""""""""""""""""""""""""""""
 "easymotion
@@ -222,49 +240,6 @@ if ! has('gui_running')
         au InsertLeave * set timeoutlen=1000
     augroup END
 endif
-
-"""""""""""""""""""""""""""""""""""""""
-"neocomplcache
-"""""""""""""""""""""""""""""""""""""""
-let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
-"let g:neocomplcache_max_list = 20
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_auto_select = 1
-"let g:neocomplcache_enable_auto_delimiter = 1
-let g:neocomplcache_enable_fuzzy_completion = 1
-let g:neocomplcache_min_syntax_length = 2
-let g:neocomplcache_min_keyword_length = 2
-"let g:neocomplcache_manual_completion_start_length = 2
-"let g:neocomplcache_enable_cursor_hold_i = 1
-"let g:neocomplcache_enable_insert_char_pre = 1
-let g:neocomplcache_enable_prefetch = 1
-let g:neocomplcache_lock_iminsert = 1
-let g:neocomplcache_use_vimproc = 1
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.python = '[^. *\t]\.\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.python3 = '[^. *\t]\.\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-inoremap <expr><C-l>  neocomplcache#complete_common_string()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
-inoremap <silent> <expr><CR> pumvisible() ? neocomplcache#smart_close_popup() . "\<CR>" : "\<CR>"
-
-"""""""""""""""""""""""""""""""""""""""
-"NeoSnippet
-"""""""""""""""""""""""""""""""""""""""
-let g:neosnippet#snippets_directory='~/Workspace/MyHomeSettings/snippets/'
-"let g:neosnippet#enable_preview=1
-imap <expr><TAB>
-      \ neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" :
-      \ pumvisible() ? neocomplcache#close_popup() :
-      \ neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" :
-      \ "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 """""""""""""""""""""""""""""""""""""""
 "Gundo
@@ -298,17 +273,6 @@ nnoremap <leader>t :CommandT ..<CR>
 :set wildignore+=*.o,*.pyc,*.pyo,.git,__pycache__
 
 """""""""""""""""""""""""""""""""""""""
-"pyflakes
-"""""""""""""""""""""""""""""""""""""""
-let g:pyflakes_use_quickfix = 0
-
-"""""""""""""""""""""""""""""""""""""""
-"pylint
-"""""""""""""""""""""""""""""""""""""""
-"autocmd FileType python compiler pylint
-"let g:pylint_onwrite = 0
-
-"""""""""""""""""""""""""""""""""""""""
 "Indent Guides
 """""""""""""""""""""""""""""""""""""""
 let g:indent_guides_auto_colors = 0
@@ -324,10 +288,9 @@ let g:user_zen_leader_key = '`'
 let g:use_zen_complete_tag = 1
 
 """""""""""""""""""""""""""""""""""""""
-"Python
+"自动补全
 """""""""""""""""""""""""""""""""""""""
 
-"自动补全
 "let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
 autocmd FileType python setlocal omnifunc=python3complete#Complete
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
@@ -340,23 +303,4 @@ autocmd FileType xhtml setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType sql setlocal omnifunc=sqlcomplete#Complete
-
-"""""""""""""""""""""""""""""""""""""""
-"Vala
-"""""""""""""""""""""""""""""""""""""""
-
-autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-au BufRead,BufNewFile *.vala            setfiletype vala
-au BufRead,BufNewFile *.vapi            setfiletype vala
-
-"""""""""""""""""""""""""""""""""""""""
-"Genie
-"""""""""""""""""""""""""""""""""""""""
-
-augroup setgenie
-    au!
-    au BufNewFile *.gs setlocal filetype="genie"
-    au BufRead *.gs setlocal filetype="genie"
-augroup END 
 
