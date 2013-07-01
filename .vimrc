@@ -169,7 +169,13 @@ fun SetupVAM()
     execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '
                 \ shellescape(c.plugin_root_dir.'/vim-addon-manager', 1)
   endif
-  call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'indentpython%3461', 'delimitMate', 'powerline', 'LustyJuggler', 'YouCompleteMe', 'UltiSnips', 'Indent_Guides', 'SudoEdit', 'Tagbar', 'vimcdoc', 'molokai', 'AutoAlign', 'rails', 'jinja', 'fcitx', 'ZenCoding', 'Supertab', 'vim-multiple-cursors'], {'auto_install' : 1})
+  call vam#ActivateAddons(['Command-T', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'delimitMate', 'powerline', 'LustyJuggler', 'YouCompleteMe', 'UltiSnips', 'Indent_Guides', 'SudoEdit', 'Tagbar', 'vimcdoc', 'molokai', 'AutoAlign', 'fcitx', 'Supertab', 'vim-multiple-cursors'], {'auto_install' : 1})
+  let g:ft_addons = {
+        \ 'python': ['indentpython%3461', 'vim-python-virtualenv'],
+        \ 'ruby': ['rails'],
+        \ 'slim': ['ZenCoding'],
+        \ }
+  au FileType * for l in values(filter(copy(ft_addons), string(expand('<amatch>', 1)).' =~ v:key')) | call vam#ActivateAddons(l, {'force_loading_plugins_now':1}) | endfor
 endfun
 call SetupVAM()
 
