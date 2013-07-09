@@ -8,7 +8,7 @@ set guioptions+=N
 set passkeys+=mail.google.com:jkeh%<CR>,gi
 set passkeys+=www.google.com/reader/:jkrvfA,ga
 set passkeys+=www.newsblur.com/:jkouA
-set passkeys+=www.feedly.com/:jkorv/,ga,gg
+set passkeys+=cloud.feedly.com/:jkorv/,ga,gg
 
 map -m n,v,i,c,t <C-a> <Pass>
 map -m n,v,i,c,t <C-c> <Pass>
