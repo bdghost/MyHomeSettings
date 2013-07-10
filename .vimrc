@@ -3,25 +3,13 @@
 """""""""""""""""""""""""""""""""""""""
 "编码
 set fileencodings=ucs-bom,utf-8,gb18030,gb2312,gbk,cp936
-"文件类型识别
-filetype plugin indent on
-"设置shell
-set shell=bash
 "关闭兼容模式
 set nocompatible
-"外部修改时自动读取
-set autoread
 "设置鼠标
 set mouse=a
 set ttymouse=xterm2
-"设置历史
-set history=400
-"设置缺省路径
-"set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 "设置mapleader
 let g:mapleader=","
-"关闭modelines
-set modelines=0
 "关闭时隐藏缓冲区
 set hidden
 "使用 X11 剪贴板
@@ -33,38 +21,26 @@ set autochdir
 "界面
 """""""""""""""""""""""""""""""""""""""
 "显示行号
-set number
-"显示光标位置
-set ruler
-"增强命令行补全
-set wildmenu
-"设置命令行高度
-set cmdheight=1
+"set number
 "减少刷新和重画
 set lazyredraw
-"设置退格键
-set backspace=eol,start,indent
 "设置跨行键
 set whichwrap+=<,>,h,l
 "搜索时智能大小写
+set ignorecase
 set smartcase
 "搜索时高亮关键字
 set hlsearch
-"即时搜索
-set incsearch
 "去除高亮快捷键
-nnoremap <leader><space> :noh<cr>
+nnoremap <leader><space> :nohlsearch<cr>
 "设置magic
 set magic
 "关闭提示音
 "set noerrorbells
 set visualbell
 "set visualbell t_vb=
-"自动匹配括号
-set showmatch
-set mat=2
 "高亮列
-set colorcolumn=85
+set colorcolumn=80
 
 """""""""""""""""""""""""""""""""""""""
 "文本
@@ -93,21 +69,13 @@ set foldlevelstart=99
 nmap <space> zA
 "不可见字符
 set list
-set listchars=tab:>-,eol:┐
-
-"""""""""""""""""""""""""""""""""""""""
-"状态条
-"""""""""""""""""""""""""""""""""""""""
-set laststatus=2
+"set listchars=tab:>-,eol:┐
 
 """""""""""""""""""""""""""""""""""""""
 "外观
 """""""""""""""""""""""""""""""""""""""
-"语法高亮
-syntax enable
 "高亮当前行
 set cursorline
-set nocursorcolumn
 "hi cursorline ctermbg=0
 
 """"""""""""""""""""""""""""""""""""""
@@ -169,7 +137,7 @@ fun! SetupVAM()
     execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '
                 \ shellescape(c.plugin_root_dir.'/vim-addon-manager', 1)
   endif
-  call vam#ActivateAddons(['ctrlp', 'fugitive', 'ack', 'EasyMotion', 'Syntastic', 'Gundo', 'delimitMate', 'powerline', 'LustyJuggler', 'YouCompleteMe', 'UltiSnips', 'Indent_Guides', 'SudoEdit', 'Tagbar', 'vimcdoc', 'molokai', 'AutoAlign', 'fcitx', 'Supertab', "The_NERD_Commenter", 'vim-multiple-cursors'], {'auto_install' : 1})
+  call vam#ActivateAddons(['sensible', 'ctrlp', 'fugitive', 'ag', 'EasyMotion', 'Syntastic', 'Gundo', 'delimitMate', 'powerline', 'obsession', 'vim-signify', 'LustyJuggler', 'YouCompleteMe', 'UltiSnips', 'Indent_Guides', 'SudoEdit', 'Tagbar', 'vimcdoc', 'molokai', 'AutoAlign', 'fcitx', 'Supertab', "The_NERD_Commenter", 'vim-multiple-cursors'], {'auto_install' : 1})
   let g:ft_addons = {
         \ 'python': ['indentpython%3461', 'vim-python-virtualenv'],
         \ 'ruby': ['rails'],
@@ -204,6 +172,11 @@ let g:ycm_key_list_previous_completion=['<C-S-TAB>', '<Up>']
 "Supertab
 """""""""""""""""""""""""""""""""""""""
 let g:SuperTabDefaultCompletionType = '<C-TAB>'
+
+"""""""""""""""""""""""""""""""""""""""
+"vim-signify
+"""""""""""""""""""""""""""""""""""""""
+"let g:signify_line_highlight = 1
 
 """""""""""""""""""""""""""""""""""""""
 "Tagbar
@@ -256,9 +229,9 @@ let g:gundo_close_on_revert = 1
 let g:gundo_prefer_python3 = 1
 
 """""""""""""""""""""""""""""""""""""""
-"Ack
+"Ag
 """""""""""""""""""""""""""""""""""""""
-nnoremap <leader>a :Ack 
+nnoremap <leader>a :Ag
 
 """""""""""""""""""""""""""""""""""""""
 "lusty
@@ -291,21 +264,4 @@ autocmd FileType python :IndentGuidesEnable
 """""""""""""""""""""""""""""""""""""""
 let g:user_zen_leader_key = '`'
 let g:use_zen_complete_tag = 1
-
-"""""""""""""""""""""""""""""""""""""""
-"自动补全
-"""""""""""""""""""""""""""""""""""""""
-
-"let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
-autocmd FileType python setlocal omnifunc=python3complete#Complete
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-autocmd FileType c setlocal omnifunc=ccomplete#Complete
-autocmd FileType ada setlocal omnifunc=adacomplete#Complete
-autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType xhtml setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType sql setlocal omnifunc=sqlcomplete#Complete
 
