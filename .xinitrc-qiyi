@@ -17,6 +17,7 @@ sudo sh -c 'echo bfq > /sys/block/sda/queue/scheduler' &
 
 sleep 10 && qdbus org.kde.kded /kded loadModule appmenu &
 xscreensaver -no-splash &
+cow &
 dex -a &
 #nitrogen --restore &
 exec ~/Scripts/wm.sh

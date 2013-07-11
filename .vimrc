@@ -74,6 +74,8 @@ set list
 """""""""""""""""""""""""""""""""""""""
 "外观
 """""""""""""""""""""""""""""""""""""""
+"语法高亮（在 sensible 之前设置，否则高亮失效）
+syntax enable
 "高亮当前行
 set cursorline
 "hi cursorline ctermbg=0
@@ -106,11 +108,6 @@ map <leader>s :source ~/.vimrc<cr>
 map <leader>e :e ~/.vimrc<cr>
 "当.vimrc改变时，自动重载（插件也会重新加载）
 "autocmd! bufwritepost .vimrc source ~/.vimrc
-"切换Tab
-"map <c-tab> <esc>:tabnext<cr>
-"切换buffer
-"nmap <c-n> <esc>:bnext<cr>
-"nmap <c-p> <esc>:bprevious<cr>
 "分屏相关
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -203,8 +200,7 @@ au FileType python let b:delimitMate_nesting_quotes = ['"']
 """""""""""""""""""""""""""""""""""""""
 "easymotion
 """""""""""""""""""""""""""""""""""""""
-hi EasyMotionTarget ctermbg=none ctermfg=green
-hi EasyMotionShade  ctermbg=none ctermfg=darkgray
+hi EasyMotionTarget ctermfg=lightblue
 
 """""""""""""""""""""""""""""""""""""""
 "Powerline
