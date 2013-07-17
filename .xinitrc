@@ -13,6 +13,7 @@ xinput set-button-map "USB Optical Mouse" 3 2 1 4 5 &
 xinput set-button-map "SynPS/2 Synaptics TouchPad" 1 2 3 5 4 &
 sleep 10 && qdbus org.kde.kded /kded loadModule appmenu &
 xscreensaver -no-splash &
+cow &
 dex -a &
 #nitrogen --restore &
 exec ~/Scripts/wm.sh
