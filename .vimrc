@@ -78,7 +78,7 @@ set list
 syntax enable
 "高亮当前行
 set cursorline
-"hi cursorline ctermbg=0
+hi cursorline ctermbg=237
 
 """"""""""""""""""""""""""""""""""""""
 "Ctags / Cscope

@@ -4,6 +4,7 @@ loadplugins '\.(js|penta)$'
 group user
 
 set guioptions+=N
+set defsearch=g
 
 set passkeys+=mail.google.com:jkeh%<CR>,gi
 set passkeys+=www.google.com/reader/:jkrvfA,ga
