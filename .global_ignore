@@ -14,9 +14,14 @@
 # Linux
 *~
 *.sw[a-z]
+nohup.out
 
 # Kate
 .*.kate-sw[a-z]
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
 
 # Vim
 *.un~

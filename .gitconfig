@@ -24,6 +24,6 @@
   #wordregex = ",|.|=|'|\"|(|)|[^[:space:]()='\".,_]+"
   wordregex = "=|'|\"|[^[:space:]()='\".,]+"
 [core]
-  excludesfile = /home/iven/.global_ignore
+  excludesfile = ~/.global_ignore
 [push]
   default = matching
