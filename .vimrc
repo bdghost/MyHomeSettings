@@ -134,7 +134,7 @@ fun! SetupVAM()
     execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '
                 \ shellescape(c.plugin_root_dir.'/vim-addon-manager', 1)
   endif
-  call vam#ActivateAddons(['sensible', 'ctrlp', 'fugitive', 'ag', 'EasyMotion', 'Syntastic', 'Gundo', 'delimitMate', 'powerline', 'obsession', 'vim-signify', 'LustyJuggler', 'YouCompleteMe', 'UltiSnips', 'Indent_Guides', 'SudoEdit', 'Tagbar', 'vimcdoc', 'molokai', 'AutoAlign', 'fcitx', 'Supertab', "The_NERD_Commenter", 'vim-multiple-cursors'], {'auto_install' : 1})
+  call vam#ActivateAddons(['sensible', 'ctrlp', 'fugitive', 'ag', 'EasyMotion', 'Syntastic', 'Gundo', 'delimitMate', 'vim-airline', 'obsession', 'vim-signify', 'LustyJuggler', 'YouCompleteMe', 'UltiSnips', 'Indent_Guides', 'SudoEdit', 'Tagbar', 'vimcdoc', 'molokai', 'AutoAlign', 'fcitx', 'Supertab', "The_NERD_Commenter", 'vim-multiple-cursors'], {'auto_install' : 1})
   let g:ft_addons = {
         \ 'python': ['indentpython%3461', 'vim-python-virtualenv'],
         \ 'ruby': ['rails'],
@@ -205,16 +205,7 @@ hi EasyMotionTarget ctermfg=lightblue
 """""""""""""""""""""""""""""""""""""""
 "Powerline
 """""""""""""""""""""""""""""""""""""""
-"let g:Powerline_symbols = "fancy"
-
-if ! has('gui_running')
-    set ttimeoutlen=10
-    augroup FastEscape
-        autocmd!
-        au InsertEnter * set timeoutlen=0
-        au InsertLeave * set timeoutlen=1000
-    augroup END
-endif
+let g:airline_powerline_fonts = 1
 
 """""""""""""""""""""""""""""""""""""""
 "Gundo
