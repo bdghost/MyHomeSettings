@@ -155,6 +155,15 @@ hi PmenuSel ctermfg=yellow ctermbg=black
 hi Normal ctermbg=none
 hi LineNr0 ctermbg=none
 hi Visual ctermfg=lightyellow ctermbg=233
+hi ColorColumn ctermfg=235
+
+"""""""""""""""""""""""""""""""""""""""
+"Syntastic
+"""""""""""""""""""""""""""""""""""""""
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 
 """""""""""""""""""""""""""""""""""""""
 "YCM
