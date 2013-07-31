@@ -134,7 +134,7 @@ fun! SetupVAM()
     execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '
                 \ shellescape(c.plugin_root_dir.'/vim-addon-manager', 1)
   endif
-  call vam#ActivateAddons(['sensible', 'ctrlp', 'fugitive', 'ag', 'EasyMotion', 'Syntastic', 'Gundo', 'delimitMate', 'vim-airline', 'obsession', 'vim-signify', 'LustyJuggler', 'YouCompleteMe', 'UltiSnips', 'Indent_Guides', 'SudoEdit', 'Tagbar', 'vimcdoc', 'molokai', 'AutoAlign', 'fcitx', 'Supertab', "The_NERD_Commenter", 'vim-multiple-cursors'], {'auto_install' : 1})
+  call vam#ActivateAddons(['sensible', 'ctrlp', 'fugitive', 'ag', 'EasyMotion', 'Syntastic', 'Gundo', 'delimitMate', 'vim-airline', 'obsession', 'vim-signify', 'LustyJuggler', 'YouCompleteMe', 'UltiSnips', 'indentLine', 'SudoEdit', 'Tagbar', 'vimcdoc', 'molokai', 'AutoAlign', 'fcitx', 'Supertab', "The_NERD_Commenter", 'vim-multiple-cursors'], {'auto_install' : 1})
   let g:ft_addons = {
         \ 'python': ['indentpython%3461', 'vim-python-virtualenv'],
         \ 'ruby': ['rails'],
@@ -247,13 +247,10 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 set wildignore+=*.so,*.o,*.pyc,*.pyo,.git,__pycache__,*.swp,*.zip
 
 """""""""""""""""""""""""""""""""""""""
-"Indent Guides
+"indentLine
 """""""""""""""""""""""""""""""""""""""
-let g:indent_guides_auto_colors = 0
-hi IndentGuidesEven ctermbg = 236
-hi IndentGuidesOdd ctermbg = 237
-let g:indent_guides_guide_size = 1
-autocmd FileType python :IndentGuidesEnable
+let g:indentLine_color_term = 237
+let g:indentLine_char = '¦'
 
 """""""""""""""""""""""""""""""""""""""
 "ZenCoding
