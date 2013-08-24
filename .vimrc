@@ -78,7 +78,6 @@ set list
 syntax enable
 "高亮当前行
 set cursorline
-hi cursorline ctermbg=237
 
 """"""""""""""""""""""""""""""""""""""
 "Ctags / Cscope
@@ -134,7 +133,7 @@ fun! SetupVAM()
     execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '
                 \ shellescape(c.plugin_root_dir.'/vim-addon-manager', 1)
   endif
-  call vam#ActivateAddons(['sensible', 'ctrlp', 'fugitive', 'ag', 'EasyMotion', 'Syntastic', 'Gundo', 'delimitMate', 'vim-airline', 'obsession', 'vim-signify', 'LustyJuggler', 'YouCompleteMe', 'UltiSnips', 'indentLine', 'SudoEdit', 'Tagbar', 'vimcdoc', 'molokai', 'AutoAlign', 'fcitx', 'Supertab', "The_NERD_Commenter", 'vim-multiple-cursors'], {'auto_install' : 1})
+  call vam#ActivateAddons(['sensible', 'ctrlp', 'fugitive', 'ag', 'EasyMotion', 'Syntastic', 'Gundo', 'delimitMate', 'vim-airline', 'obsession', 'vim-signify', 'LustyJuggler', 'YouCompleteMe', 'UltiSnips', 'indentLine', 'SudoEdit', 'Tagbar', 'vimcdoc', 'molokai', 'AutoAlign', 'fcitx', 'Supertab', "The_NERD_Commenter", 'vim-multiple-cursors', 'move'], {'auto_install' : 1})
   let g:ft_addons = {
         \ 'python': ['indentpython%3461', 'vim-python-virtualenv'],
         \ 'ruby': ['rails'],
@@ -155,7 +154,11 @@ hi PmenuSel ctermfg=yellow ctermbg=black
 hi Normal ctermbg=none
 hi LineNr0 ctermbg=none
 hi Visual ctermfg=lightyellow ctermbg=233
-hi ColorColumn ctermfg=235
+hi ColorColumn ctermbg=none cterm=underline
+hi CursorLine ctermbg=none cterm=bold
+hi SignColumn ctermbg=none
+hi VertSplit ctermbg=none
+"hi TabLine ctermbg=none
 
 """""""""""""""""""""""""""""""""""""""
 "Syntastic
@@ -164,6 +167,12 @@ let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
+
+"""""""""""""""""""""""""""""""""""""""
+"move
+"""""""""""""""""""""""""""""""""""""""
+"let g:move_map_keys = 0
+let g:move_key_modifier = 'C-S'
 
 """""""""""""""""""""""""""""""""""""""
 "YCM

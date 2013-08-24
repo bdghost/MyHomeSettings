@@ -1,7 +1,7 @@
 % Color settings
-color normal lightgray black
-color status yellow blue
-color underline yellow black
+color normal lightgray none
+color status yellow none
+color underline yellow none
 color overstrike pink black
 
 % less-like keybindings
